@@ -149,6 +149,12 @@ function encodeFormData(formData) {
   return new URLSearchParams(formData).toString();
 }
 
+function getFormSuccessUrl() {
+  if (!form) return '/gracias/';
+
+  return form.dataset.successUrl || form.getAttribute('action') || '/gracias/';
+}
+
 if (form && formResponse) {
   const defaultButtonText = formSubmitButton ? formSubmitButton.textContent : '';
 
@@ -182,7 +188,11 @@ if (form && formResponse) {
       }
 
       form.reset();
-      setFormResponse('Solicitud enviada. Netlify la guardó correctamente en el panel de formularios.', 'success');
+      setFormResponse('Solicitud enviada. Redirigiendo...', 'success');
+
+      window.setTimeout(() => {
+        window.location.assign(getFormSuccessUrl());
+      }, 700);
     } catch (error) {
       setFormResponse('No se pudo enviar desde esta vista. En Netlify quedará activo al publicar el sitio.', 'error');
     } finally {
