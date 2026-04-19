@@ -5,8 +5,9 @@ const yearNode = document.querySelector('#year');
 const revealNodes = document.querySelectorAll('[data-reveal]');
 const form = document.querySelector('#contact-form');
 const formResponse = document.querySelector('#form-response');
+const formSubmitButton = document.querySelector('#contact-submit');
 const header = document.querySelector('.site-header');
-const backToTop = document.querySelector('#back-to-top');
+const backToTop = document.querySelector('#back-to-top') || document.querySelector('.back-to-top');
 
 if (yearNode) {
   yearNode.textContent = new Date().getFullYear();
@@ -133,16 +134,62 @@ if (backToTop) {
 }
 
 /* ── Contact form demo ───────────────────────────── */
+function setFormResponse(message, state = '') {
+  if (!formResponse) return;
+
+  formResponse.textContent = message;
+  formResponse.classList.remove('is-success', 'is-error', 'is-loading');
+
+  if (state) {
+    formResponse.classList.add(`is-${state}`);
+  }
+}
+
+function encodeFormData(formData) {
+  return new URLSearchParams(formData).toString();
+}
+
 if (form && formResponse) {
-  form.addEventListener('submit', (event) => {
+  const defaultButtonText = formSubmitButton ? formSubmitButton.textContent : '';
+
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const email = new FormData(form).get('email');
 
-    formResponse.textContent = `Listo. Preparamos la siguiente version para ${email}.`;
-    form.reset();
+    if (!form.reportValidity()) {
+      return;
+    }
 
-    setTimeout(() => {
-      formResponse.textContent = '';
-    }, 5000);
+    const formData = new FormData(form);
+
+    if (formSubmitButton) {
+      formSubmitButton.disabled = true;
+      formSubmitButton.textContent = 'Enviando...';
+    }
+
+    setFormResponse('Enviando solicitud...', 'loading');
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: encodeFormData(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('No fue posible enviar la solicitud.');
+      }
+
+      form.reset();
+      setFormResponse('Solicitud enviada. Netlify la guardó correctamente en el panel de formularios.', 'success');
+    } catch (error) {
+      setFormResponse('No se pudo enviar desde esta vista. En Netlify quedará activo al publicar el sitio.', 'error');
+    } finally {
+      if (formSubmitButton) {
+        formSubmitButton.disabled = false;
+        formSubmitButton.textContent = defaultButtonText;
+      }
+    }
   });
 }
