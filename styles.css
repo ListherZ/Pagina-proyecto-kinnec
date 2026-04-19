@@ -608,6 +608,17 @@ main, .site-header, .site-footer, .signal-strip {
 
 .section-intro h2 { font-size: clamp(2.2rem, 3.7vw, 4rem); max-width: 16ch; }
 
+#informacion .section-intro {
+  gap: 1.6rem;
+  margin-bottom: 1.35rem;
+}
+
+#informacion .section-intro p {
+  max-width: 44ch;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
 /* PANELS & GRIDS */
 .problem-grid,
 .timeline,
@@ -623,7 +634,7 @@ main, .site-header, .site-footer, .signal-strip {
 .timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .program-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .audience-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.info-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.info-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .scope-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .persona-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.15rem; }
 .public-grid { align-items: stretch; }
@@ -729,6 +740,16 @@ main, .site-header, .site-footer, .signal-strip {
 .program-card:hover { border-top-color: var(--forest); }
 .program-head { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 0.7rem; }
 .program-head span { margin-bottom: 0; }
+#informacion .program-card {
+  min-height: auto;
+  padding: 1.15rem 1.2rem 1rem;
+}
+
+#informacion .program-head {
+  gap: 0.7rem;
+  margin-bottom: 0.35rem;
+}
+
 .info-grid .program-head {
   align-items: flex-start;
 }
@@ -736,6 +757,11 @@ main, .site-header, .site-footer, .signal-strip {
 .info-grid .program-head h3 {
   flex: 1;
   margin: 0;
+}
+
+#informacion .program-head h3 {
+  font-size: 1.15rem;
+  line-height: 1.04;
 }
 
 .info-card-icon {
@@ -752,6 +778,11 @@ main, .site-header, .site-footer, .signal-strip {
   box-shadow: inset 0 0 16px rgba(0, 243, 255, 0.12), 0 0 12px rgba(0, 243, 255, 0.08);
 }
 
+#informacion .info-card-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
 .info-card-icon svg {
   width: 1.55rem;
   height: 1.55rem;
@@ -760,6 +791,11 @@ main, .site-header, .site-footer, .signal-strip {
   stroke-linecap: round;
   stroke-linejoin: round;
   filter: drop-shadow(0 0 6px rgba(0, 243, 255, 0.4));
+}
+
+#informacion .info-card-icon svg {
+  width: 1.3rem;
+  height: 1.3rem;
 }
 
 .info-grid .program-card:hover .info-card-icon {
@@ -773,6 +809,12 @@ main, .site-header, .site-footer, .signal-strip {
 
 .info-grid .program-card p {
   margin-top: 1.1rem;
+}
+
+#informacion .program-card p {
+  margin-top: 0.65rem;
+  font-size: 0.96rem;
+  line-height: 1.42;
 }
 
 .info-grid .program-card:last-child {
