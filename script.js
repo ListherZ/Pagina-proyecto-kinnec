@@ -1,0 +1,148 @@
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.site-nav');
+const navLinks = document.querySelectorAll('.site-nav a');
+const yearNode = document.querySelector('#year');
+const revealNodes = document.querySelectorAll('[data-reveal]');
+const form = document.querySelector('#contact-form');
+const formResponse = document.querySelector('#form-response');
+const header = document.querySelector('.site-header');
+const backToTop = document.querySelector('#back-to-top');
+
+if (yearNode) {
+  yearNode.textContent = new Date().getFullYear();
+}
+
+/* ── Mobile menu ─────────────────────────────────── */
+function closeMenu() {
+  document.body.classList.remove('menu-open');
+  if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+}
+
+if (menuToggle && nav) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = document.body.classList.toggle('menu-open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+
+  document.addEventListener('click', (e) => {
+    if (document.body.classList.contains('menu-open') &&
+        !nav.contains(e.target) &&
+        !menuToggle.contains(e.target)) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+      closeMenu();
+      menuToggle.focus();
+    }
+  });
+}
+
+/* ── Scroll reveal (per-section delays) ──────────── */
+if ('IntersectionObserver' in window) {
+  const sections = document.querySelectorAll('section, .signal-strip');
+
+  sections.forEach((section) => {
+    const children = section.querySelectorAll('[data-reveal]');
+    children.forEach((node, i) => {
+      node.style.transitionDelay = `${Math.min(i * 80, 320)}ms`;
+    });
+  });
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.12,
+      rootMargin: '0px 0px -50px 0px',
+    }
+  );
+
+  revealNodes.forEach((node) => observer.observe(node));
+} else {
+  revealNodes.forEach((node) => node.classList.add('is-visible'));
+}
+
+/* ── Header auto-hide on scroll down ─────────────── */
+let lastScrollY = 0;
+let ticking = false;
+
+function updateHeader() {
+  const currentY = window.scrollY;
+  if (!header) return;
+
+  if (currentY > lastScrollY && currentY > 120) {
+    header.classList.add('header-hidden');
+  } else {
+    header.classList.remove('header-hidden');
+  }
+
+  lastScrollY = currentY;
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(updateHeader);
+    ticking = true;
+  }
+}, { passive: true });
+
+/* ── Active nav link on scroll ───────────────────── */
+const sectionTargets = document.querySelectorAll('section[id]');
+const navMap = {};
+navLinks.forEach((link) => {
+  const hash = link.getAttribute('href');
+  if (hash && hash.startsWith('#')) navMap[hash.slice(1)] = link;
+});
+
+function updateActiveNav() {
+  let current = '';
+  sectionTargets.forEach((sec) => {
+    if (window.scrollY >= sec.offsetTop - 200) {
+      current = sec.id;
+    }
+  });
+
+  Object.values(navMap).forEach((link) => link.classList.remove('nav-active'));
+  if (current && navMap[current]) navMap[current].classList.add('nav-active');
+}
+
+window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
+
+/* ── Back to top ─────────────────────────────────── */
+if (backToTop) {
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('is-visible', window.scrollY > 600);
+  }, { passive: true });
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ── Contact form demo ───────────────────────────── */
+if (form && formResponse) {
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const email = new FormData(form).get('email');
+
+    formResponse.textContent = `Listo. Preparamos la siguiente version para ${email}.`;
+    form.reset();
+
+    setTimeout(() => {
+      formResponse.textContent = '';
+    }, 5000);
+  });
+}
