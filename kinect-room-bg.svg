@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <rect width="1600" height="900" fill="#060912" />
+  <g opacity="0.22">
+    <rect x="690" y="470" width="240" height="170" fill="#07101f" stroke="#e9f7ff" stroke-width="3" transform="rotate(-18 690 470)" />
+    <path d="M712 504 894 445" stroke="#e9f7ff" stroke-width="2" />
+    <path d="M726 530 908 471" stroke="#e9f7ff" stroke-width="2" />
+    <path d="M740 556 922 497" stroke="#e9f7ff" stroke-width="2" />
+    <path d="M754 582 936 523" stroke="#e9f7ff" stroke-width="2" />
+    <path d="M768 608 950 549" stroke="#e9f7ff" stroke-width="2" />
+    <path d="M732 468 787 625" stroke="#e9f7ff" stroke-width="2" />
+    <path d="M766 457 821 614" stroke="#e9f7ff" stroke-width="2" />
+    <path d="M800 446 855 603" stroke="#e9f7ff" stroke-width="2" />
+    <path d="M834 435 889 592" stroke="#e9f7ff" stroke-width="2" />
+    <path d="M868 424 923 581" stroke="#e9f7ff" stroke-width="2" />
+  </g>
+  <g stroke="#f4f6ff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M156 720 405 555" />
+    <path d="M405 555V138" />
+    <path d="M405 138H1228" />
+    <path d="M1228 138V662" />
+    <path d="M1228 662 1060 756" />
+    <path d="M405 555 1060 756" opacity="0.45" />
+    <path d="M1134 86H1408V314H1134Z" />
+    <path d="M1268 286V159" />
+    <path d="M1268 194C1282 176 1305 174 1322 187" />
+    <path d="M1268 178C1287 156 1320 154 1339 175" />
+    <path d="M1286 164C1309 144 1344 146 1363 168" />
+    <path d="M1268 286 1233 320" opacity="0.55" />
+    <path d="M154 720V518H354V806" opacity="0.7" />
+  </g>
+  <g opacity="0.12" stroke="#f4f6ff" stroke-width="2">
+    <path d="M594 578 787 516" />
+    <path d="M612 610 806 547" />
+    <path d="M632 642 824 580" />
+    <path d="M650 674 842 612" />
+    <path d="M668 706 860 644" />
+    <path d="M705 496 778 713" />
+    <path d="M744 483 818 699" />
+    <path d="M784 470 858 687" />
+    <path d="M824 457 897 674" />
+    <path d="M863 444 937 661" />
+  </g>
+  <circle cx="1230" cy="136" r="6" fill="#f4f6ff" />
+</svg>

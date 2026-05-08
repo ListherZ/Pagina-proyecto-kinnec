@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interfaz Kinect | Kinect Yoga Experience</title>
+    <meta
+      name="description"
+      content="Secuencia de pantallas Kinect: menu principal, seleccion de series de yoga y vista de rutina en curso."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="kinect-page-body">
+    <main class="kinect-page-shell kinect-page-shell-wide">
+      <header class="kinect-page-header">
+        <div>
+          <p class="kinect-page-kicker">Prototipo de interfaz</p>
+          <h1>Interfaz Kinect</h1>
+          <p class="kinect-page-copy">
+            La pagina ahora muestra tres estados de la experiencia: menu principal, seleccion de series y una vista interna de la rutina.
+          </p>
+        </div>
+        <a class="kinect-page-back" href="index.html">Volver al inicio</a>
+      </header>
+
+      <section class="kinect-page-section" aria-labelledby="pantalla-menu">
+        <div class="kinect-page-section-copy">
+          <p class="kinect-page-section-kicker">Pantalla 1</p>
+          <h2 id="pantalla-menu">Menu principal</h2>
+          <p>Camara fija en verde, ubicada en la esquina inferior izquierda, con el resto del escenario libre y el panel de opciones a la derecha.</p>
+        </div>
+
+        <div class="kinect-screen kinect-screen-room kinect-interactive-screen" data-kinect-dwell-root>
+          <div class="kinect-screen-background kinect-screen-background-room" aria-hidden="true"></div>
+
+          <div class="kinect-camera-feed" aria-label="Camara Kinect fija">
+            <span class="kinect-camera-feed-label">Camara Kinect</span>
+            <canvas class="kinect-camera-canvas" data-kinect-camera width="180" height="180" aria-label="Vista de camara verde"></canvas>
+            <span class="kinect-camera-feed-user">usuario 01</span>
+          </div>
+
+          <aside class="kinect-side-panel" data-kinect-track-area>
+            <div class="kinect-panel-header">
+              <p class="kinect-panel-kicker">Seleccion por gesto</p>
+              <h3>Menu principal</h3>
+              <p class="kinect-panel-copy">No hay botones de mover. La seleccion se hace manteniendo la mano sobre la opcion.</p>
+            </div>
+
+            <nav class="kinect-selection-list" aria-label="Menu principal de Kinect">
+              <button class="kinect-selectable" data-kinect-selectable data-kinect-label="Yoga" data-default="true" type="button">
+                <span class="kinect-selectable-title">Yoga</span>
+                <span class="kinect-selectable-meta">Rutinas y sesiones guiadas</span>
+                <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
+              </button>
+              <button class="kinect-selectable" data-kinect-selectable data-kinect-label="Calibracion" type="button">
+                <span class="kinect-selectable-title">Calibracion</span>
+                <span class="kinect-selectable-meta">Ajuste de postura y distancia</span>
+                <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
+              </button>
+              <button class="kinect-selectable" data-kinect-selectable data-kinect-label="Creditos" type="button">
+                <span class="kinect-selectable-title">Creditos</span>
+                <span class="kinect-selectable-meta">Equipo y descripcion del proyecto</span>
+                <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
+              </button>
+            </nav>
+
+            <p class="kinect-gesture-hint">Manten la mano sobre una opcion para activar la seleccion.</p>
+            <p class="kinect-page-status" data-kinect-status data-prefix="Seleccion actual: ">Yoga</p>
+          </aside>
+
+          <div class="kinect-hand-cursor" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" width="42" height="42">
+              <path d="M30 8v14M26 10V6a2 2 0 0 0-4 0v4M22 10V8a2 2 0 0 0-4 0v6M18 14v2a2 2 0 0 0-4 0v8c0 7.2 6 12 12 12s12-4.8 12-12v-6a2 2 0 0 0-4 0v-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="kinect-page-section" aria-labelledby="pantalla-series">
+        <div class="kinect-page-section-copy">
+          <p class="kinect-page-section-kicker">Pantalla 2</p>
+          <h2 id="pantalla-series">Seleccion de serie de yoga</h2>
+          <p>La segunda interfaz mantiene el mismo lenguaje visual y propone tres series de ejemplo para navegar con el mismo gesto.</p>
+        </div>
+
+        <div class="kinect-screen kinect-screen-room kinect-interactive-screen" data-kinect-dwell-root>
+          <div class="kinect-screen-background kinect-screen-background-room" aria-hidden="true"></div>
+
+          <div class="kinect-camera-feed" aria-label="Camara Kinect fija para seleccion de series">
+            <span class="kinect-camera-feed-label">Camara Kinect</span>
+            <canvas class="kinect-camera-canvas" data-kinect-camera width="180" height="180" aria-label="Vista de camara verde"></canvas>
+            <span class="kinect-camera-feed-user">tracking activo</span>
+          </div>
+
+          <aside class="kinect-side-panel kinect-side-panel-wide" data-kinect-track-area>
+            <div class="kinect-panel-header">
+              <p class="kinect-panel-kicker">Seleccion por gesto</p>
+              <h3>Series de yoga</h3>
+              <p class="kinect-panel-copy">Ejemplo de tres rutas para el prototipo, manteniendo la misma base visual del menu principal.</p>
+            </div>
+
+            <div class="kinect-series-list" aria-label="Series de yoga disponibles">
+              <button class="kinect-selectable kinect-series-card" data-kinect-selectable data-kinect-label="Serie 1" data-default="true" type="button">
+                <span class="kinect-series-card-title">Serie 1</span>
+                <span class="kinect-series-card-meta">Respiracion y equilibrio base</span>
+                <span class="kinect-series-card-time">12 min</span>
+                <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
+              </button>
+              <button class="kinect-selectable kinect-series-card" data-kinect-selectable data-kinect-label="Serie 2" type="button">
+                <span class="kinect-series-card-title">Serie 2</span>
+                <span class="kinect-series-card-meta">Flexibilidad y control postural</span>
+                <span class="kinect-series-card-time">15 min</span>
+                <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
+              </button>
+              <button class="kinect-selectable kinect-series-card" data-kinect-selectable data-kinect-label="Serie 3" type="button">
+                <span class="kinect-series-card-title">Serie 3</span>
+                <span class="kinect-series-card-meta">Flujo continuo y precision</span>
+                <span class="kinect-series-card-time">18 min</span>
+                <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
+              </button>
+            </div>
+
+            <p class="kinect-gesture-hint">Manten la mano sobre una serie para dejarla seleccionada.</p>
+            <p class="kinect-page-status" data-kinect-status data-prefix="Serie activa: ">Serie 1</p>
+          </aside>
+
+          <div class="kinect-hand-cursor" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" width="42" height="42">
+              <path d="M30 8v14M26 10V6a2 2 0 0 0-4 0v4M22 10V8a2 2 0 0 0-4 0v6M18 14v2a2 2 0 0 0-4 0v8c0 7.2 6 12 12 12s12-4.8 12-12v-6a2 2 0 0 0-4 0v-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="kinect-page-section" aria-labelledby="pantalla-serie">
+        <div class="kinect-page-section-copy">
+          <p class="kinect-page-section-kicker">Pantalla 3</p>
+          <h2 id="pantalla-serie">Dentro de la serie</h2>
+          <p>Referencia inspirada en la segunda imagen: solo quedan la camara, la barra de progreso y la lista de movimientos.</p>
+        </div>
+
+        <div class="kinect-screen kinect-screen-session" aria-label="Vista interna de la serie de yoga">
+          <div class="kinect-screen-background kinect-screen-background-session" aria-hidden="true"></div>
+
+          <div class="kinect-session-progress" aria-label="Barra de progreso de la serie">
+            <span class="kinect-session-progress-title">Serie 1</span>
+            <div class="kinect-session-progress-track" aria-hidden="true">
+              <span class="kinect-session-progress-fill"></span>
+            </div>
+            <span class="kinect-session-progress-time">02:14 / 05:20</span>
+          </div>
+
+          <div class="kinect-session-moves" aria-label="Movimientos de la serie">
+            <article class="kinect-session-move is-current">
+              <span class="kinect-session-move-state">Ahora</span>
+              <strong>Postura de montana</strong>
+            </article>
+            <article class="kinect-session-move">
+              <span class="kinect-session-move-state">Siguiente</span>
+              <strong>Guerrero II</strong>
+            </article>
+            <article class="kinect-session-move">
+              <span class="kinect-session-move-state">Despues</span>
+              <strong>Arbol</strong>
+            </article>
+            <article class="kinect-session-move">
+              <span class="kinect-session-move-state">Cierre</span>
+              <strong>Respiracion final</strong>
+            </article>
+          </div>
+
+          <div class="kinect-camera-feed kinect-camera-feed-session" aria-label="Camara Kinect fija durante la rutina">
+            <span class="kinect-camera-feed-label">Camara Kinect</span>
+            <canvas class="kinect-camera-canvas" data-kinect-camera width="170" height="170" aria-label="Vista de camara verde"></canvas>
+            <span class="kinect-camera-feed-user">modo serie</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

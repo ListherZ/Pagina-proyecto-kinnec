@@ -203,3 +203,261 @@ if (form && formResponse) {
     }
   });
 }
+/* --------------------------------------------------
+   KINECT INTERFACE PAGE
+-------------------------------------------------- */
+(function () {
+  const cameraCanvases = Array.from(document.querySelectorAll('[data-kinect-camera]'));
+  const interactiveScreens = Array.from(document.querySelectorAll('[data-kinect-dwell-root]'));
+
+  if (cameraCanvases.length === 0 && interactiveScreens.length === 0) {
+    return;
+  }
+
+  function drawStaticCamera(canvas) {
+    const context = canvas.getContext('2d');
+    if (!context) {
+      return;
+    }
+
+    const width = canvas.width;
+    const height = canvas.height;
+    const centerX = width / 2;
+    const glow = '#4cff97';
+    const ink = '#8dffc0';
+
+    context.clearRect(0, 0, width, height);
+    context.fillStyle = '#07100d';
+    context.fillRect(0, 0, width, height);
+
+    context.strokeStyle = 'rgba(76, 255, 151, 0.14)';
+    context.lineWidth = 1;
+    for (let x = 0; x < width; x += 18) {
+      context.beginPath();
+      context.moveTo(x, 0);
+      context.lineTo(x, height);
+      context.stroke();
+    }
+    for (let y = 0; y < height; y += 18) {
+      context.beginPath();
+      context.moveTo(0, y);
+      context.lineTo(width, y);
+      context.stroke();
+    }
+
+    const joints = {
+      head: { x: centerX, y: 34 },
+      neck: { x: centerX, y: 55 },
+      leftShoulder: { x: centerX - 20, y: 64 },
+      rightShoulder: { x: centerX + 20, y: 64 },
+      leftElbow: { x: centerX - 29, y: 86 },
+      rightElbow: { x: centerX + 29, y: 86 },
+      leftHand: { x: centerX - 34, y: 112 },
+      rightHand: { x: centerX + 34, y: 112 },
+      torso: { x: centerX, y: 96 },
+      leftHip: { x: centerX - 12, y: 114 },
+      rightHip: { x: centerX + 12, y: 114 },
+      leftKnee: { x: centerX - 17, y: 145 },
+      rightKnee: { x: centerX + 17, y: 145 },
+      leftFoot: { x: centerX - 22, y: 170 },
+      rightFoot: { x: centerX + 22, y: 170 },
+    };
+
+    const bones = [
+      ['head', 'neck'],
+      ['neck', 'leftShoulder'],
+      ['neck', 'rightShoulder'],
+      ['leftShoulder', 'leftElbow'],
+      ['leftElbow', 'leftHand'],
+      ['rightShoulder', 'rightElbow'],
+      ['rightElbow', 'rightHand'],
+      ['neck', 'torso'],
+      ['torso', 'leftHip'],
+      ['torso', 'rightHip'],
+      ['leftHip', 'rightHip'],
+      ['leftHip', 'leftKnee'],
+      ['leftKnee', 'leftFoot'],
+      ['rightHip', 'rightKnee'],
+      ['rightKnee', 'rightFoot'],
+    ];
+
+    context.strokeStyle = 'rgba(76, 255, 151, 0.18)';
+    context.lineWidth = 8;
+    context.lineCap = 'round';
+    bones.forEach(([from, to]) => {
+      context.beginPath();
+      context.moveTo(joints[from].x, joints[from].y);
+      context.lineTo(joints[to].x, joints[to].y);
+      context.stroke();
+    });
+
+    context.strokeStyle = glow;
+    context.lineWidth = 2.4;
+    bones.forEach(([from, to]) => {
+      context.beginPath();
+      context.moveTo(joints[from].x, joints[from].y);
+      context.lineTo(joints[to].x, joints[to].y);
+      context.stroke();
+    });
+
+    Object.values(joints).forEach((joint) => {
+      context.beginPath();
+      context.arc(joint.x, joint.y, 5, 0, Math.PI * 2);
+      context.fillStyle = 'rgba(76, 255, 151, 0.18)';
+      context.fill();
+
+      context.beginPath();
+      context.arc(joint.x, joint.y, 2.4, 0, Math.PI * 2);
+      context.fillStyle = ink;
+      context.fill();
+    });
+
+    context.beginPath();
+    context.arc(joints.head.x, joints.head.y, 11, 0, Math.PI * 2);
+    context.strokeStyle = glow;
+    context.lineWidth = 2.2;
+    context.stroke();
+
+    context.strokeStyle = 'rgba(76, 255, 151, 0.42)';
+    context.strokeRect(18, 18, width - 36, height - 36);
+
+    context.font = '700 10px "Barlow Semi Condensed", monospace';
+    context.fillStyle = glow;
+    context.fillText('TRACKING LOCK', 16, height - 16);
+  }
+
+  function initInteractiveScreen(root) {
+    const trackArea = root.querySelector('[data-kinect-track-area]') || root;
+    const cursor = root.querySelector('.kinect-hand-cursor');
+    const targets = Array.from(root.querySelectorAll('[data-kinect-selectable]'));
+    const statusNode = root.querySelector('[data-kinect-status]');
+
+    if (!cursor || targets.length === 0) {
+      return;
+    }
+
+    const prefix = statusNode ? statusNode.dataset.prefix || '' : '';
+    const dwellTime = 1500;
+
+    let activeItem = null;
+    let dwellTarget = null;
+    let dwellStart = 0;
+    let dwellInterval = null;
+
+    function getLabel(item) {
+      return item.dataset.kinectLabel || item.textContent.trim();
+    }
+
+    function setStatus(label) {
+      if (statusNode) {
+        statusNode.textContent = prefix + label;
+      }
+    }
+
+    function setFillWidth(item, width) {
+      const fill = item.querySelector('.kinect-dwell-fill');
+      if (fill) {
+        fill.style.width = width;
+      }
+    }
+
+    function clearDwell() {
+      targets.forEach((item) => {
+        item.classList.remove('kinect-hovered');
+        setFillWidth(item, item === activeItem ? '100%' : '0%');
+      });
+
+      dwellTarget = null;
+      dwellStart = 0;
+
+      if (dwellInterval) {
+        window.clearInterval(dwellInterval);
+        dwellInterval = null;
+      }
+    }
+
+    function showFeedback(item) {
+      const current = item.querySelector('.kinect-selected-label');
+      if (current) {
+        current.remove();
+      }
+
+      const label = document.createElement('div');
+      label.className = 'kinect-selected-label';
+      label.textContent = getLabel(item);
+      item.appendChild(label);
+
+      window.setTimeout(() => {
+        label.remove();
+      }, 1100);
+    }
+
+    function activate(item, showToast) {
+      if (activeItem && activeItem !== item) {
+        activeItem.classList.remove('kinect-active');
+        setFillWidth(activeItem, '0%');
+      }
+
+      activeItem = item;
+      activeItem.classList.add('kinect-active');
+      setFillWidth(activeItem, '100%');
+      setStatus(getLabel(activeItem));
+
+      if (showToast) {
+        showFeedback(activeItem);
+      }
+    }
+
+    function startDwell(item) {
+      if (item === activeItem || item === dwellTarget) {
+        return;
+      }
+
+      clearDwell();
+      dwellTarget = item;
+      dwellStart = performance.now();
+      item.classList.add('kinect-hovered');
+
+      dwellInterval = window.setInterval(() => {
+        const elapsed = performance.now() - dwellStart;
+        const progress = Math.min((elapsed / dwellTime) * 100, 100);
+        setFillWidth(item, progress + '%');
+
+        if (elapsed >= dwellTime) {
+          window.clearInterval(dwellInterval);
+          dwellInterval = null;
+          activate(item, true);
+          clearDwell();
+        }
+      }, 16);
+    }
+
+    function onMove(event) {
+      const rootBounds = root.getBoundingClientRect();
+      cursor.style.left = event.clientX - rootBounds.left + 'px';
+      cursor.style.top = event.clientY - rootBounds.top + 'px';
+      cursor.classList.add('visible');
+
+      const target = event.target.closest('[data-kinect-selectable]');
+      if (!target) {
+        clearDwell();
+        return;
+      }
+
+      startDwell(target);
+    }
+
+    function onLeave() {
+      cursor.classList.remove('visible');
+      clearDwell();
+    }
+
+    const defaultItem = targets.find((item) => item.dataset.default === 'true') || targets[0];
+    activate(defaultItem, false);
+    trackArea.addEventListener('mousemove', onMove);
+    trackArea.addEventListener('mouseleave', onLeave);
+  }
+
+  cameraCanvases.forEach(drawStaticCamera);
+  interactiveScreens.forEach(initInteractiveScreen);
+}());
