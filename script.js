@@ -208,10 +208,76 @@ if (form && formResponse) {
 -------------------------------------------------- */
 (function () {
   const cameraCanvases = Array.from(document.querySelectorAll('[data-kinect-camera]'));
+  const calibrationCanvases = Array.from(document.querySelectorAll('[data-kinect-calibration]'));
   const interactiveScreens = Array.from(document.querySelectorAll('[data-kinect-dwell-root]'));
+  const screenSwitchers = Array.from(document.querySelectorAll('[data-screen-switcher]'));
 
-  if (cameraCanvases.length === 0 && interactiveScreens.length === 0) {
+  if (
+    cameraCanvases.length === 0 &&
+    calibrationCanvases.length === 0 &&
+    interactiveScreens.length === 0 &&
+    screenSwitchers.length === 0
+  ) {
     return;
+  }
+
+  function getVersionCopy(root, version) {
+    if (version === 2) {
+      return {
+        label: root.dataset.versionTwoLabel || 'Version 2',
+        note: root.dataset.versionTwoNote || '',
+      };
+    }
+
+    return {
+      label: root.dataset.versionOneLabel || 'Version 1',
+      note: root.dataset.versionOneNote || '',
+    };
+  }
+
+  function renderScreenSwitcher(root) {
+    const version = Number(root.dataset.screenVersion || '1') === 2 ? 2 : 1;
+    const labelNode = root.querySelector('[data-screen-version-label]');
+    const noteNode = root.querySelector('[data-screen-version-note]');
+    const indexNode = root.querySelector('[data-screen-version-index]');
+    const copy = getVersionCopy(root, version);
+
+    root.dataset.screenVersion = String(version);
+
+    if (indexNode) {
+      indexNode.textContent = `${String(version).padStart(2, '0')} / 02`;
+    }
+
+    if (labelNode) {
+      labelNode.textContent = copy.label;
+    }
+
+    if (noteNode) {
+      noteNode.textContent = copy.note;
+    }
+  }
+
+  function initScreenSwitcher(root) {
+    renderScreenSwitcher(root);
+
+    const buttons = Array.from(root.querySelectorAll('[data-screen-direction]'));
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const currentVersion = Number(root.dataset.screenVersion || '1') === 2 ? 2 : 1;
+        let nextVersion = currentVersion + Number(button.dataset.screenDirection || '0');
+
+        if (nextVersion > 2) {
+          nextVersion = 1;
+        }
+
+        if (nextVersion < 1) {
+          nextVersion = 2;
+        }
+
+        root.dataset.screenVersion = String(nextVersion);
+        renderScreenSwitcher(root);
+      });
+    });
   }
 
   function drawStaticCamera(canvas) {
@@ -326,6 +392,150 @@ if (form && formResponse) {
     context.fillText('TRACKING LOCK', 16, height - 16);
   }
 
+  function drawCalibrationCamera(canvas) {
+    const context = canvas.getContext('2d');
+    if (!context) {
+      return;
+    }
+
+    const width = canvas.width;
+    const height = canvas.height;
+    const centerX = width / 2;
+    const centerY = height / 2;
+    const glow = '#4cff97';
+    const glowSoft = 'rgba(76, 255, 151, 0.18)';
+    const frameInsetX = width * 0.18;
+    const frameInsetY = height * 0.1;
+
+    context.clearRect(0, 0, width, height);
+    context.fillStyle = '#07100d';
+    context.fillRect(0, 0, width, height);
+
+    context.strokeStyle = 'rgba(76, 255, 151, 0.1)';
+    context.lineWidth = 1;
+    for (let x = 0; x < width; x += 28) {
+      context.beginPath();
+      context.moveTo(x, 0);
+      context.lineTo(x, height);
+      context.stroke();
+    }
+    for (let y = 0; y < height; y += 28) {
+      context.beginPath();
+      context.moveTo(0, y);
+      context.lineTo(width, y);
+      context.stroke();
+    }
+
+    context.strokeStyle = 'rgba(76, 255, 151, 0.32)';
+    context.lineWidth = 2;
+    context.strokeRect(frameInsetX, frameInsetY, width - frameInsetX * 2, height - frameInsetY * 2);
+
+    context.beginPath();
+    context.moveTo(centerX, frameInsetY);
+    context.lineTo(centerX, height - frameInsetY);
+    context.strokeStyle = 'rgba(76, 255, 151, 0.14)';
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(frameInsetX, height - frameInsetY - 28);
+    context.lineTo(width - frameInsetX, height - frameInsetY - 28);
+    context.stroke();
+
+    const joints = {
+      head: { x: centerX, y: centerY - 138 },
+      neck: { x: centerX, y: centerY - 98 },
+      leftShoulder: { x: centerX - 54, y: centerY - 78 },
+      rightShoulder: { x: centerX + 54, y: centerY - 78 },
+      leftElbow: { x: centerX - 86, y: centerY - 8 },
+      rightElbow: { x: centerX + 86, y: centerY - 8 },
+      leftHand: { x: centerX - 98, y: centerY + 66 },
+      rightHand: { x: centerX + 98, y: centerY + 66 },
+      torso: { x: centerX, y: centerY - 8 },
+      leftHip: { x: centerX - 32, y: centerY + 48 },
+      rightHip: { x: centerX + 32, y: centerY + 48 },
+      leftKnee: { x: centerX - 42, y: centerY + 146 },
+      rightKnee: { x: centerX + 42, y: centerY + 146 },
+      leftFoot: { x: centerX - 56, y: centerY + 232 },
+      rightFoot: { x: centerX + 56, y: centerY + 232 },
+    };
+
+    const bones = [
+      ['head', 'neck'],
+      ['neck', 'leftShoulder'],
+      ['neck', 'rightShoulder'],
+      ['leftShoulder', 'leftElbow'],
+      ['leftElbow', 'leftHand'],
+      ['rightShoulder', 'rightElbow'],
+      ['rightElbow', 'rightHand'],
+      ['neck', 'torso'],
+      ['torso', 'leftHip'],
+      ['torso', 'rightHip'],
+      ['leftHip', 'rightHip'],
+      ['leftHip', 'leftKnee'],
+      ['leftKnee', 'leftFoot'],
+      ['rightHip', 'rightKnee'],
+      ['rightKnee', 'rightFoot'],
+    ];
+
+    context.strokeStyle = glowSoft;
+    context.lineWidth = 16;
+    context.lineCap = 'round';
+    bones.forEach(([from, to]) => {
+      context.beginPath();
+      context.moveTo(joints[from].x, joints[from].y);
+      context.lineTo(joints[to].x, joints[to].y);
+      context.stroke();
+    });
+
+    context.strokeStyle = glow;
+    context.lineWidth = 5;
+    bones.forEach(([from, to]) => {
+      context.beginPath();
+      context.moveTo(joints[from].x, joints[from].y);
+      context.lineTo(joints[to].x, joints[to].y);
+      context.stroke();
+    });
+
+    Object.values(joints).forEach((joint) => {
+      context.beginPath();
+      context.arc(joint.x, joint.y, 8, 0, Math.PI * 2);
+      context.fillStyle = 'rgba(76, 255, 151, 0.15)';
+      context.fill();
+
+      context.beginPath();
+      context.arc(joint.x, joint.y, 3.4, 0, Math.PI * 2);
+      context.fillStyle = '#8dffc0';
+      context.fill();
+    });
+
+    context.beginPath();
+    context.arc(joints.head.x, joints.head.y, 24, 0, Math.PI * 2);
+    context.strokeStyle = glow;
+    context.lineWidth = 4;
+    context.stroke();
+
+    context.font = '700 14px "Barlow Semi Condensed", monospace';
+    context.fillStyle = glow;
+    context.fillText('TRACKING ALIGNMENT', 24, 28);
+    context.fillText('BODY CENTERED', width - 168, 28);
+  }
+
+  function navigateToTarget(item) {
+    const selector = item.dataset.kinectTarget;
+    if (!selector) {
+      return;
+    }
+
+    const target = document.querySelector(selector);
+    if (!target) {
+      return;
+    }
+
+    window.setTimeout(() => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 220);
+  }
+
   function initInteractiveScreen(root) {
     const trackArea = root.querySelector('[data-kinect-track-area]') || root;
     const cursor = root.querySelector('.kinect-hand-cursor');
@@ -405,6 +615,7 @@ if (form && formResponse) {
 
       if (showToast) {
         showFeedback(activeItem);
+        navigateToTarget(activeItem);
       }
     }
 
@@ -454,10 +665,19 @@ if (form && formResponse) {
 
     const defaultItem = targets.find((item) => item.dataset.default === 'true') || targets[0];
     activate(defaultItem, false);
+
+    targets.forEach((target) => {
+      target.addEventListener('click', () => {
+        activate(target, true);
+      });
+    });
+
     trackArea.addEventListener('mousemove', onMove);
     trackArea.addEventListener('mouseleave', onLeave);
   }
 
+  screenSwitchers.forEach(initScreenSwitcher);
   cameraCanvases.forEach(drawStaticCamera);
+  calibrationCanvases.forEach(drawCalibrationCamera);
   interactiveScreens.forEach(initInteractiveScreen);
 }());

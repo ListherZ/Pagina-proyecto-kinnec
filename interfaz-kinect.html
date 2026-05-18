@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -23,7 +23,7 @@
           <p class="kinect-page-kicker">Prototipo de interfaz</p>
           <h1>Interfaz Kinect</h1>
           <p class="kinect-page-copy">
-            La pagina ahora muestra tres estados de la experiencia: menu principal, seleccion de series y una vista interna de la rutina.
+            La pagina ahora muestra cinco estados de la experiencia: menu principal, seleccion de series, rutina, calibracion y creditos.
           </p>
         </div>
         <a class="kinect-page-back" href="index.html">Volver al inicio</a>
@@ -33,52 +33,84 @@
         <div class="kinect-page-section-copy">
           <p class="kinect-page-section-kicker">Pantalla 1</p>
           <h2 id="pantalla-menu">Menu principal</h2>
-          <p>Camara fija en verde, ubicada en la esquina inferior izquierda, con el resto del escenario libre y el panel de opciones a la derecha.</p>
+          <p>Camara fija en verde, ubicada en la esquina inferior izquierda, con el resto del escenario libre y el panel de opciones a la derecha. Usa las flechas para comparar la base actual con una propuesta visual mas conectada con yoga.</p>
         </div>
 
-        <div class="kinect-screen kinect-screen-room kinect-interactive-screen" data-kinect-dwell-root>
-          <div class="kinect-screen-background kinect-screen-background-room" aria-hidden="true"></div>
+        <div
+          class="kinect-screen-switcher"
+          data-screen-switcher
+          data-screen-version="1"
+          data-version-one-label="Version 1 · Base actual"
+          data-version-two-label="Version 2 · Yoga sensorial"
+          data-version-one-note="Lenguaje limpio con foco en usabilidad y lectura rapida."
+          data-version-two-note="Paleta organica, tipografia editorial y detalles inspirados en estudio y respiracion."
+        >
+          <button class="kinect-version-arrow kinect-version-arrow-prev" type="button" data-screen-direction="-1" aria-label="Mostrar la otra version del menu principal">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M29 12 17 24l12 12" />
+            </svg>
+          </button>
 
-          <div class="kinect-camera-feed" aria-label="Camara Kinect fija">
-            <span class="kinect-camera-feed-label">Camara Kinect</span>
-            <canvas class="kinect-camera-canvas" data-kinect-camera width="180" height="180" aria-label="Vista de camara verde"></canvas>
-            <span class="kinect-camera-feed-user">usuario 01</span>
-          </div>
-
-          <aside class="kinect-side-panel" data-kinect-track-area>
-            <div class="kinect-panel-header">
-              <p class="kinect-panel-kicker">Seleccion por gesto</p>
-              <h3>Menu principal</h3>
-              <p class="kinect-panel-copy">No hay botones de mover. La seleccion se hace manteniendo la mano sobre la opcion.</p>
+          <div class="kinect-screen-stage">
+            <div class="kinect-screen-version-tag" aria-live="polite">
+              <span class="kinect-screen-version-index" data-screen-version-index>01 / 02</span>
+              <div>
+                <strong data-screen-version-label>Version 1 · Base actual</strong>
+                <span data-screen-version-note>Lenguaje limpio con foco en usabilidad y lectura rapida.</span>
+              </div>
             </div>
 
-            <nav class="kinect-selection-list" aria-label="Menu principal de Kinect">
-              <button class="kinect-selectable" data-kinect-selectable data-kinect-label="Yoga" data-default="true" type="button">
-                <span class="kinect-selectable-title">Yoga</span>
-                <span class="kinect-selectable-meta">Rutinas y sesiones guiadas</span>
-                <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
-              </button>
-              <button class="kinect-selectable" data-kinect-selectable data-kinect-label="Calibracion" type="button">
-                <span class="kinect-selectable-title">Calibracion</span>
-                <span class="kinect-selectable-meta">Ajuste de postura y distancia</span>
-                <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
-              </button>
-              <button class="kinect-selectable" data-kinect-selectable data-kinect-label="Creditos" type="button">
-                <span class="kinect-selectable-title">Creditos</span>
-                <span class="kinect-selectable-meta">Equipo y descripcion del proyecto</span>
-                <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
-              </button>
-            </nav>
+            <div class="kinect-screen kinect-screen-room kinect-screen-menu kinect-interactive-screen" data-kinect-dwell-root>
+              <div class="kinect-screen-background kinect-screen-background-room" aria-hidden="true"></div>
 
-            <p class="kinect-gesture-hint">Manten la mano sobre una opcion para activar la seleccion.</p>
-            <p class="kinect-page-status" data-kinect-status data-prefix="Seleccion actual: ">Yoga</p>
-          </aside>
+              <div class="kinect-camera-feed" aria-label="Camara Kinect fija">
+                <span class="kinect-camera-feed-label">Camara Kinect</span>
+                <canvas class="kinect-camera-canvas" data-kinect-camera width="180" height="180" aria-label="Vista de camara verde"></canvas>
+                <span class="kinect-camera-feed-user">usuario 01</span>
+              </div>
 
-          <div class="kinect-hand-cursor" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" width="42" height="42">
-              <path d="M30 8v14M26 10V6a2 2 0 0 0-4 0v4M22 10V8a2 2 0 0 0-4 0v6M18 14v2a2 2 0 0 0-4 0v8c0 7.2 6 12 12 12s12-4.8 12-12v-6a2 2 0 0 0-4 0v-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+              <aside class="kinect-side-panel" data-kinect-track-area>
+                <div class="kinect-panel-header">
+                  <p class="kinect-panel-kicker">Seleccion por gesto</p>
+                  <h3>Menu principal</h3>
+                  <p class="kinect-panel-copy">No hay botones de mover. La seleccion se hace manteniendo la mano sobre la opcion.</p>
+                </div>
+
+                <nav class="kinect-selection-list" aria-label="Menu principal de Kinect">
+                  <button class="kinect-selectable" data-kinect-selectable data-kinect-label="Yoga" data-kinect-target="#pantalla-series" data-default="true" type="button">
+                    <span class="kinect-selectable-title">Yoga</span>
+                    <span class="kinect-selectable-meta">Rutinas y sesiones guiadas</span>
+                    <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
+                  </button>
+                  <button class="kinect-selectable" data-kinect-selectable data-kinect-label="Calibracion" data-kinect-target="#pantalla-calibracion" type="button">
+                    <span class="kinect-selectable-title">Calibracion</span>
+                    <span class="kinect-selectable-meta">Ajuste de postura y distancia</span>
+                    <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
+                  </button>
+                  <button class="kinect-selectable" data-kinect-selectable data-kinect-label="Creditos" data-kinect-target="#pantalla-creditos" type="button">
+                    <span class="kinect-selectable-title">Creditos</span>
+                    <span class="kinect-selectable-meta">Equipo y descripcion del proyecto</span>
+                    <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
+                  </button>
+                </nav>
+
+                <p class="kinect-gesture-hint">Manten la mano sobre una opcion para activar la seleccion.</p>
+                <p class="kinect-page-status" data-kinect-status data-prefix="Seleccion actual: ">Yoga</p>
+              </aside>
+
+              <div class="kinect-hand-cursor" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" width="42" height="42">
+                  <path d="M30 8v14M26 10V6a2 2 0 0 0-4 0v4M22 10V8a2 2 0 0 0-4 0v6M18 14v2a2 2 0 0 0-4 0v8c0 7.2 6 12 12 12s12-4.8 12-12v-6a2 2 0 0 0-4 0v-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
           </div>
+
+          <button class="kinect-version-arrow kinect-version-arrow-next" type="button" data-screen-direction="1" aria-label="Mostrar la otra version del menu principal">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="m19 12 12 12-12 12" />
+            </svg>
+          </button>
         </div>
       </section>
 
@@ -86,55 +118,87 @@
         <div class="kinect-page-section-copy">
           <p class="kinect-page-section-kicker">Pantalla 2</p>
           <h2 id="pantalla-series">Seleccion de serie de yoga</h2>
-          <p>La segunda interfaz mantiene el mismo lenguaje visual y propone tres series de ejemplo para navegar con el mismo gesto.</p>
+          <p>La segunda interfaz mantiene el mismo lenguaje visual y propone tres series de ejemplo para navegar con el mismo gesto. Las flechas dejan alternar entre la composicion actual y una variante mas calida y atmosferica.</p>
         </div>
 
-        <div class="kinect-screen kinect-screen-room kinect-interactive-screen" data-kinect-dwell-root>
-          <div class="kinect-screen-background kinect-screen-background-room" aria-hidden="true"></div>
-
-          <div class="kinect-camera-feed" aria-label="Camara Kinect fija para seleccion de series">
-            <span class="kinect-camera-feed-label">Camara Kinect</span>
-            <canvas class="kinect-camera-canvas" data-kinect-camera width="180" height="180" aria-label="Vista de camara verde"></canvas>
-            <span class="kinect-camera-feed-user">tracking activo</span>
-          </div>
-
-          <aside class="kinect-side-panel kinect-side-panel-wide" data-kinect-track-area>
-            <div class="kinect-panel-header">
-              <p class="kinect-panel-kicker">Seleccion por gesto</p>
-              <h3>Series de yoga</h3>
-              <p class="kinect-panel-copy">Ejemplo de tres rutas para el prototipo, manteniendo la misma base visual del menu principal.</p>
-            </div>
-
-            <div class="kinect-series-list" aria-label="Series de yoga disponibles">
-              <button class="kinect-selectable kinect-series-card" data-kinect-selectable data-kinect-label="Serie 1" data-default="true" type="button">
-                <span class="kinect-series-card-title">Serie 1</span>
-                <span class="kinect-series-card-meta">Respiracion y equilibrio base</span>
-                <span class="kinect-series-card-time">12 min</span>
-                <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
-              </button>
-              <button class="kinect-selectable kinect-series-card" data-kinect-selectable data-kinect-label="Serie 2" type="button">
-                <span class="kinect-series-card-title">Serie 2</span>
-                <span class="kinect-series-card-meta">Flexibilidad y control postural</span>
-                <span class="kinect-series-card-time">15 min</span>
-                <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
-              </button>
-              <button class="kinect-selectable kinect-series-card" data-kinect-selectable data-kinect-label="Serie 3" type="button">
-                <span class="kinect-series-card-title">Serie 3</span>
-                <span class="kinect-series-card-meta">Flujo continuo y precision</span>
-                <span class="kinect-series-card-time">18 min</span>
-                <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
-              </button>
-            </div>
-
-            <p class="kinect-gesture-hint">Manten la mano sobre una serie para dejarla seleccionada.</p>
-            <p class="kinect-page-status" data-kinect-status data-prefix="Serie activa: ">Serie 1</p>
-          </aside>
-
-          <div class="kinect-hand-cursor" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" width="42" height="42">
-              <path d="M30 8v14M26 10V6a2 2 0 0 0-4 0v4M22 10V8a2 2 0 0 0-4 0v6M18 14v2a2 2 0 0 0-4 0v8c0 7.2 6 12 12 12s12-4.8 12-12v-6a2 2 0 0 0-4 0v-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        <div
+          class="kinect-screen-switcher"
+          data-screen-switcher
+          data-screen-version="1"
+          data-version-one-label="Version 1 · Serie funcional"
+          data-version-two-label="Version 2 · Curaduria yoga"
+          data-version-one-note="Estructura sobria para navegar tres series con el mismo gesto."
+          data-version-two-note="Tarjetas mas expresivas, mejor jerarquia visual y una atmosfera de retiro suave."
+        >
+          <button class="kinect-version-arrow kinect-version-arrow-prev" type="button" data-screen-direction="-1" aria-label="Mostrar la otra version de seleccion de series">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M29 12 17 24l12 12" />
             </svg>
+          </button>
+
+          <div class="kinect-screen-stage">
+            <div class="kinect-screen-version-tag" aria-live="polite">
+              <span class="kinect-screen-version-index" data-screen-version-index>01 / 02</span>
+              <div>
+                <strong data-screen-version-label>Version 1 · Serie funcional</strong>
+                <span data-screen-version-note>Estructura sobria para navegar tres series con el mismo gesto.</span>
+              </div>
+            </div>
+
+            <div class="kinect-screen kinect-screen-room kinect-screen-series kinect-interactive-screen" data-kinect-dwell-root>
+              <div class="kinect-screen-background kinect-screen-background-room" aria-hidden="true"></div>
+
+              <div class="kinect-camera-feed" aria-label="Camara Kinect fija para seleccion de series">
+                <span class="kinect-camera-feed-label">Camara Kinect</span>
+                <canvas class="kinect-camera-canvas" data-kinect-camera width="180" height="180" aria-label="Vista de camara verde"></canvas>
+                <span class="kinect-camera-feed-user">tracking activo</span>
+              </div>
+
+              <aside class="kinect-side-panel kinect-side-panel-wide" data-kinect-track-area>
+                <div class="kinect-panel-header">
+                  <p class="kinect-panel-kicker">Seleccion por gesto</p>
+                  <h3>Series de yoga</h3>
+                  <p class="kinect-panel-copy">Ejemplo de tres rutas para el prototipo, manteniendo la misma base visual del menu principal.</p>
+                </div>
+
+                <div class="kinect-series-list" aria-label="Series de yoga disponibles">
+                  <button class="kinect-selectable kinect-series-card" data-kinect-selectable data-kinect-label="Serie 1" data-default="true" type="button">
+                    <span class="kinect-series-card-title">Serie 1</span>
+                    <span class="kinect-series-card-meta">Respiracion y equilibrio base</span>
+                    <span class="kinect-series-card-time">12 min</span>
+                    <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
+                  </button>
+                  <button class="kinect-selectable kinect-series-card" data-kinect-selectable data-kinect-label="Serie 2" type="button">
+                    <span class="kinect-series-card-title">Serie 2</span>
+                    <span class="kinect-series-card-meta">Flexibilidad y control postural</span>
+                    <span class="kinect-series-card-time">15 min</span>
+                    <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
+                  </button>
+                  <button class="kinect-selectable kinect-series-card" data-kinect-selectable data-kinect-label="Serie 3" type="button">
+                    <span class="kinect-series-card-title">Serie 3</span>
+                    <span class="kinect-series-card-meta">Flujo continuo y precision</span>
+                    <span class="kinect-series-card-time">18 min</span>
+                    <span class="kinect-dwell-bar" aria-hidden="true"><span class="kinect-dwell-fill"></span></span>
+                  </button>
+                </div>
+
+                <p class="kinect-gesture-hint">Manten la mano sobre una serie para dejarla seleccionada.</p>
+                <p class="kinect-page-status" data-kinect-status data-prefix="Serie activa: ">Serie 1</p>
+              </aside>
+
+              <div class="kinect-hand-cursor" aria-hidden="true">
+                <svg viewBox="0 0 48 48" fill="none" width="42" height="42">
+                  <path d="M30 8v14M26 10V6a2 2 0 0 0-4 0v4M22 10V8a2 2 0 0 0-4 0v6M18 14v2a2 2 0 0 0-4 0v8c0 7.2 6 12 12 12s12-4.8 12-12v-6a2 2 0 0 0-4 0v-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+            </div>
           </div>
+
+          <button class="kinect-version-arrow kinect-version-arrow-next" type="button" data-screen-direction="1" aria-label="Mostrar la otra version de seleccion de series">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="m19 12 12 12-12 12" />
+            </svg>
+          </button>
         </div>
       </section>
 
@@ -142,87 +206,210 @@
         <div class="kinect-page-section-copy">
           <p class="kinect-page-section-kicker">Pantalla 3</p>
           <h2 id="pantalla-serie">Dentro de la serie</h2>
-          <p>Aqui quedan la camara, la barra de progreso y la lista de movimientos.</p>
+          <p>Aqui quedan la camara, la barra de progreso y la lista de movimientos. Tambien se puede alternar entre la version base y una propuesta con un tono mas ritual, guiado y envolvente.</p>
         </div>
 
-        <div class="kinect-screen kinect-screen-session" aria-label="Vista interna de la serie de yoga">
-          <div class="kinect-screen-background kinect-screen-background-session" aria-hidden="true"></div>
+        <div
+          class="kinect-screen-switcher"
+          data-screen-switcher
+          data-screen-version="1"
+          data-version-one-label="Version 1 · Seguimiento interno"
+          data-version-two-label="Version 2 · Guia inmersiva"
+          data-version-one-note="Camara, progreso y secuencia de poses con el foco en control tecnico."
+          data-version-two-note="Lectura mas calmada, acentos calidos y paneles que evocan una sesion guiada de estudio."
+        >
+          <button class="kinect-version-arrow kinect-version-arrow-prev" type="button" data-screen-direction="-1" aria-label="Mostrar la otra version de la vista interna de la serie">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M29 12 17 24l12 12" />
+            </svg>
+          </button>
 
-          <div class="kinect-session-progress" aria-label="Barra de progreso de la serie">
-            <span class="kinect-session-progress-title">Serie 1</span>
-            <div class="kinect-session-progress-track" aria-hidden="true">
-              <span class="kinect-session-progress-fill"></span>
+          <div class="kinect-screen-stage">
+            <div class="kinect-screen-version-tag" aria-live="polite">
+              <span class="kinect-screen-version-index" data-screen-version-index>01 / 02</span>
+              <div>
+                <strong data-screen-version-label>Version 1 · Seguimiento interno</strong>
+                <span data-screen-version-note>Camara, progreso y secuencia de poses con el foco en control tecnico.</span>
+              </div>
             </div>
-            <span class="kinect-session-progress-time">02:14 / 05:20</span>
+
+            <div class="kinect-screen kinect-screen-session" aria-label="Vista interna de la serie de yoga">
+              <div class="kinect-screen-background kinect-screen-background-session" aria-hidden="true"></div>
+
+              <div class="kinect-session-progress" aria-label="Barra de progreso de la serie">
+                <span class="kinect-session-progress-title">Serie 1</span>
+                <div class="kinect-session-progress-track" aria-hidden="true">
+                  <span class="kinect-session-progress-fill"></span>
+                </div>
+                <span class="kinect-session-progress-time">02:14 / 05:20</span>
+              </div>
+
+              <div class="kinect-session-moves" aria-label="Movimientos de la serie">
+                <article class="kinect-session-move is-current">
+                  <div class="kinect-session-move-copy">
+                    <span class="kinect-session-move-state">Ahora</span>
+                    <strong>Pose 1</strong>
+                  </div>
+                  <svg class="kinect-pose-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <!-- Árbol (Tree Pose) -->
+                    <circle class="kinect-pose-base" cx="32" cy="12" r="4.5" />
+                    <path class="kinect-pose-base" d="M32 17v18" />
+                    <path class="kinect-pose-base" d="M32 35l-4 13l0 12" />
+                    <path class="kinect-pose-base" d="M32 35l12 7l-16 6" />
+                    <path class="kinect-pose-base" d="M32 20l-10 6l10 4" />
+                    <path class="kinect-pose-base" d="M32 20l10 6l-10 4" />
+                    <path class="kinect-pose-focus" d="M32 35l12 7l-16 6" />
+                  </svg>
+                </article>
+                <article class="kinect-session-move">
+                  <div class="kinect-session-move-copy">
+                    <span class="kinect-session-move-state">Siguiente</span>
+                    <strong>Pose 2</strong>
+                  </div>
+                  <svg class="kinect-pose-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <!-- Guerrero II (Warrior II) -->
+                    <circle class="kinect-pose-base" cx="32" cy="14" r="4.5" />
+                    <path class="kinect-pose-base" d="M32 19v16" />
+                    <path class="kinect-pose-base" d="M32 35l-16 0l0 21" />
+                    <path class="kinect-pose-base" d="M32 35l18 10l4 11" />
+                    <path class="kinect-pose-base" d="M32 22l-18 0" />
+                    <path class="kinect-pose-base" d="M32 22l18 0" />
+                    <path class="kinect-pose-focus" d="M14 22l36 0" />
+                  </svg>
+                </article>
+                <article class="kinect-session-move">
+                  <div class="kinect-session-move-copy">
+                    <span class="kinect-session-move-state">Despues</span>
+                    <strong>Pose 3</strong>
+                  </div>
+                  <svg class="kinect-pose-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <!-- Danzante (Dancer Pose) -->
+                    <circle class="kinect-pose-base" cx="24" cy="14" r="4.5" />
+                    <path class="kinect-pose-base" d="M24 19v16" />
+                    <path class="kinect-pose-base" d="M24 35l2 13l0 12" />
+                    <path class="kinect-pose-base" d="M24 35l16 3l2-18" />
+                    <path class="kinect-pose-base" d="M24 22l-16-6" />
+                    <path class="kinect-pose-base" d="M24 22l10-4l8 2" />
+                    <path class="kinect-pose-focus" d="M24 35l16 3l2-18" />
+                  </svg>
+                </article>
+                <article class="kinect-session-move">
+                  <div class="kinect-session-move-copy">
+                    <span class="kinect-session-move-state">Cierre</span>
+                    <strong>Cierre</strong>
+                  </div>
+                  <svg class="kinect-pose-icon" viewBox="0 0 64 64" aria-hidden="true">
+                    <!-- Loto (Lotus Pose) -->
+                    <circle class="kinect-pose-base" cx="32" cy="24" r="4.5" />
+                    <path class="kinect-pose-base" d="M32 29v18" />
+                    <path class="kinect-pose-base" d="M32 47l-14 5l14 3" />
+                    <path class="kinect-pose-base" d="M32 47l14 5l-14 3" />
+                    <path class="kinect-pose-base" d="M32 32l-10 8l-4 12" />
+                    <path class="kinect-pose-base" d="M32 32l10 8l4 12" />
+                    <path class="kinect-pose-focus" d="M18 52l14 3l14-3" />
+                  </svg>
+                </article>
+              </div>
+
+              <div class="kinect-camera-feed kinect-camera-feed-session" aria-label="Camara Kinect fija durante la rutina">
+                <span class="kinect-camera-feed-label">Camara Kinect</span>
+                <canvas class="kinect-camera-canvas" data-kinect-camera width="170" height="170" aria-label="Vista de camara verde"></canvas>
+                <span class="kinect-camera-feed-user">modo serie</span>
+              </div>
+            </div>
           </div>
 
-          <div class="kinect-session-moves" aria-label="Movimientos de la serie">
-            <article class="kinect-session-move is-current">
-              <div class="kinect-session-move-copy">
-                <span class="kinect-session-move-state">Ahora</span>
-                <strong>Pose 1</strong>
-              </div>
-              <svg class="kinect-pose-icon" viewBox="0 0 64 64" aria-hidden="true">
-                <circle class="kinect-pose-base" cx="32" cy="10" r="5" />
-                <path class="kinect-pose-base" d="M32 15v16" />
-                <path class="kinect-pose-base" d="M32 22l-10 8" />
-                <path class="kinect-pose-base" d="M32 22l8 7" />
-                <path class="kinect-pose-base" d="M32 31l-8 14" />
-                <path class="kinect-pose-base" d="M32 31l8 14" />
-                <path class="kinect-pose-focus" d="M32 22l16-10" />
-              </svg>
-            </article>
-            <article class="kinect-session-move">
-              <div class="kinect-session-move-copy">
-                <span class="kinect-session-move-state">Siguiente</span>
-                <strong>Pose 2</strong>
-              </div>
-              <svg class="kinect-pose-icon" viewBox="0 0 64 64" aria-hidden="true">
-                <circle class="kinect-pose-base" cx="32" cy="10" r="5" />
-                <path class="kinect-pose-base" d="M32 15v16" />
-                <path class="kinect-pose-base" d="M32 22l-10 8" />
-                <path class="kinect-pose-base" d="M32 22l10 8" />
-                <path class="kinect-pose-base" d="M32 31l-8 14" />
-                <path class="kinect-pose-base" d="M32 31l8 14" />
-                <path class="kinect-pose-focus" d="M32 31l15 9" />
-              </svg>
-            </article>
-            <article class="kinect-session-move">
-              <div class="kinect-session-move-copy">
-                <span class="kinect-session-move-state">Despues</span>
-                <strong>Pose 3</strong>
-              </div>
-              <svg class="kinect-pose-icon" viewBox="0 0 64 64" aria-hidden="true">
-                <circle class="kinect-pose-base" cx="32" cy="10" r="5" />
-                <path class="kinect-pose-base" d="M32 15v16" />
-                <path class="kinect-pose-base" d="M32 22l-10 8" />
-                <path class="kinect-pose-base" d="M32 22l10 8" />
-                <path class="kinect-pose-base" d="M32 31l8 14" />
-                <path class="kinect-pose-base" d="M32 31l-8 14" />
-                <path class="kinect-pose-focus" d="M32 31l-16 5" />
-              </svg>
-            </article>
-            <article class="kinect-session-move">
-              <div class="kinect-session-move-copy">
-                <span class="kinect-session-move-state">Cierre</span>
-                <strong>Cierre</strong>
-              </div>
-              <svg class="kinect-pose-icon" viewBox="0 0 64 64" aria-hidden="true">
-                <circle class="kinect-pose-base" cx="32" cy="10" r="5" />
-                <path class="kinect-pose-base" d="M32 15v16" />
-                <path class="kinect-pose-base" d="M32 22l-9 9" />
-                <path class="kinect-pose-base" d="M32 22l9 9" />
-                <path class="kinect-pose-base" d="M32 31l-8 14" />
-                <path class="kinect-pose-base" d="M32 31l8 14" />
-                <path class="kinect-pose-focus" d="M22 39c4 4 16 4 20 0" />
-              </svg>
-            </article>
-          </div>
+          <button class="kinect-version-arrow kinect-version-arrow-next" type="button" data-screen-direction="1" aria-label="Mostrar la otra version de la vista interna de la serie">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="m19 12 12 12-12 12" />
+            </svg>
+          </button>
+        </div>
+      </section>
 
-          <div class="kinect-camera-feed kinect-camera-feed-session" aria-label="Camara Kinect fija durante la rutina">
-            <span class="kinect-camera-feed-label">Camara Kinect</span>
-            <canvas class="kinect-camera-canvas" data-kinect-camera width="170" height="170" aria-label="Vista de camara verde"></canvas>
-            <span class="kinect-camera-feed-user">modo serie</span>
+      <section class="kinect-page-section kinect-page-section-v2" aria-labelledby="pantalla-calibracion">
+        <div class="kinect-page-section-copy">
+          <p class="kinect-page-section-kicker">Pantalla 4</p>
+          <h2 id="pantalla-calibracion">Calibracion</h2>
+          <p>Esta vista representa el ajuste previo a la sesion: encuadre del cuerpo, verificacion de postura y confirmacion del tracking antes de iniciar.</p>
+        </div>
+
+        <div class="kinect-screen kinect-screen-room kinect-screen-calibration" aria-label="Pantalla de calibracion Kinect">
+          <div class="kinect-screen-background kinect-screen-background-room" aria-hidden="true"></div>
+
+          <div class="kinect-calibration-stage">
+            <div class="kinect-calibration-hero">
+              <p class="kinect-panel-kicker">Ajuste inicial</p>
+              <h3>Calibracion corporal</h3>
+              <p class="kinect-panel-copy">Coloca la silueta completa dentro del marco, separa ligeramente los brazos y mantente quieto para fijar la distancia.</p>
+            </div>
+
+            <div class="kinect-calibration-view" aria-label="Vista principal de calibracion">
+              <canvas class="kinect-calibration-canvas" data-kinect-calibration width="760" height="500" aria-label="Vista de calibracion del cuerpo"></canvas>
+              <div class="kinect-calibration-overlay" aria-hidden="true">
+                <span class="kinect-calibration-chip">Cabeza detectada</span>
+                <span class="kinect-calibration-chip">Brazos en rango</span>
+                <span class="kinect-calibration-chip">Piernas alineadas</span>
+              </div>
+            </div>
+
+            <aside class="kinect-calibration-panel">
+              <div class="kinect-calibration-status-card">
+                <span class="kinect-calibration-status-label">Estado</span>
+                <strong>Tracking estable</strong>
+                <p>La postura esta dentro del encuadre recomendado. Puedes continuar con la sesion.</p>
+              </div>
+
+              <ol class="kinect-calibration-steps" aria-label="Pasos de calibracion">
+                <li>Ubica ambos pies dentro de la guia inferior.</li>
+                <li>Mantiene hombros y cadera centrados frente al sensor.</li>
+                <li>Espera la confirmacion del seguimiento completo.</li>
+              </ol>
+
+              <div class="kinect-aux-actions">
+                <a class="kinect-aux-link" href="#pantalla-menu">Volver al menu</a>
+                <a class="kinect-aux-link kinect-aux-link-primary" href="#pantalla-series">Continuar a series</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="kinect-page-section kinect-page-section-v2" aria-labelledby="pantalla-creditos">
+        <div class="kinect-page-section-copy">
+          <p class="kinect-page-section-kicker">Pantalla 5</p>
+          <h2 id="pantalla-creditos">Creditos</h2>
+          <p>Vista dedicada al equipo del proyecto, pensada como una pantalla final dentro del mismo flujo visual del prototipo Kinect.</p>
+        </div>
+
+        <div class="kinect-screen kinect-screen-room kinect-screen-credits" aria-label="Pantalla de creditos del proyecto">
+          <div class="kinect-screen-background kinect-screen-background-room" aria-hidden="true"></div>
+
+          <div class="kinect-credits-stage">
+            <div class="kinect-credits-copy">
+              <p class="kinect-panel-kicker">Proyecto Kinect Yoga</p>
+              <h3>Creditos</h3>
+              <p class="kinect-panel-copy">Equipo responsable del desarrollo visual y tecnico del prototipo interactivo.</p>
+            </div>
+
+            <div class="kinect-credits-grid" aria-label="Equipo del proyecto">
+              <article class="kinect-credit-card">
+                <span class="kinect-credit-role">Modelos y sonidos</span>
+                <h4>Matias Cabrera</h4>
+                <p>Responsable del desarrollo de modelos y del trabajo sonoro del prototipo.</p>
+              </article>
+
+              <article class="kinect-credit-card">
+                <span class="kinect-credit-role">Programacion</span>
+                <h4>Listher</h4>
+                <p>Responsable de la logica de interfaz, interaccion y estructura funcional del proyecto.</p>
+              </article>
+            </div>
+
+            <div class="kinect-aux-actions kinect-aux-actions-centered">
+              <a class="kinect-aux-link" href="#pantalla-menu">Volver al menu</a>
+              <a class="kinect-aux-link kinect-aux-link-primary" href="index.html">Volver al inicio</a>
+            </div>
           </div>
         </div>
       </section>
