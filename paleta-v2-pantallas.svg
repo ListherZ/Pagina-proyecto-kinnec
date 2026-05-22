@@ -1,0 +1,124 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pageBg" x1="200" y1="60" x2="1450" y2="1100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#04060D"/>
+      <stop offset="1" stop-color="#070A13"/>
+    </linearGradient>
+    <linearGradient id="panelGlow" x1="360" y1="250" x2="1240" y2="1020" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="rgba(214,178,95,0.18)"/>
+      <stop offset="1" stop-color="rgba(181,108,82,0.12)"/>
+    </linearGradient>
+    <linearGradient id="activeGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6F8267"/>
+      <stop offset="1" stop-color="#B56C52"/>
+    </linearGradient>
+    <linearGradient id="progressGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#D6B25F"/>
+      <stop offset="0.42" stop-color="#B56C52"/>
+      <stop offset="1" stop-color="#6F8267"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#22170E" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#pageBg)"/>
+  <circle cx="1260" cy="220" r="220" fill="#6F4CFF" fill-opacity="0.12"/>
+  <circle cx="320" cy="1000" r="280" fill="#B56C52" fill-opacity="0.08"/>
+
+  <g filter="url(#softShadow)">
+    <rect x="80" y="70" width="1440" height="1060" rx="44" fill="#0B0E14"/>
+    <rect x="80" y="70" width="1440" height="1060" rx="44" fill="url(#panelGlow)"/>
+    <rect x="81" y="71" width="1438" height="1058" rx="43" stroke="#D6B25F" stroke-opacity="0.2"/>
+  </g>
+
+  <text x="140" y="172" fill="#FFFAF2" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="700">Paleta Version 2</text>
+  <text x="140" y="220" fill="#F2E9DD" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="500">Yoga sensorial, curaduria yoga y guia inmersiva</text>
+
+  <g>
+    <rect x="140" y="272" width="1320" height="108" rx="28" fill="#FFFaf2" fill-opacity="0.96"/>
+    <rect x="141" y="273" width="1318" height="106" rx="27" stroke="#D6B25F" stroke-opacity="0.22"/>
+    <text x="180" y="322" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">COMBINACION PRINCIPAL</text>
+    <rect x="180" y="340" width="260" height="18" rx="9" fill="url(#progressGradient)"/>
+    <text x="470" y="355" fill="#6D6256" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="600">Azafran + Arcilla + Salvia sobre base crema</text>
+  </g>
+
+  <g>
+    <rect x="140" y="430" width="400" height="610" rx="34" fill="#FFFAF2"/>
+    <rect x="141" y="431" width="398" height="608" rx="33" stroke="#D6B25F" stroke-opacity="0.16"/>
+    <text x="180" y="500" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Colores base</text>
+
+    <rect x="180" y="540" width="144" height="92" rx="22" fill="#FFFAF2" stroke="#D6B25F" stroke-opacity="0.28"/>
+    <text x="350" y="578" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Crema</text>
+    <text x="350" y="608" fill="#6D6256" font-family="Consolas, monospace" font-size="22">#FFFAF2</text>
+
+    <rect x="180" y="662" width="144" height="92" rx="22" fill="#F2E9DD"/>
+    <text x="350" y="700" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Piedra</text>
+    <text x="350" y="730" fill="#6D6256" font-family="Consolas, monospace" font-size="22">#F2E9DD</text>
+
+    <rect x="180" y="784" width="144" height="92" rx="22" fill="#463B30"/>
+    <text x="350" y="822" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Tinta</text>
+    <text x="350" y="852" fill="#6D6256" font-family="Consolas, monospace" font-size="22">#463B30</text>
+
+    <rect x="180" y="906" width="144" height="92" rx="22" fill="#6D6256"/>
+    <text x="350" y="944" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Tinta suave</text>
+    <text x="350" y="974" fill="#6D6256" font-family="Consolas, monospace" font-size="22">#6D6256</text>
+  </g>
+
+  <g>
+    <rect x="600" y="430" width="420" height="610" rx="34" fill="#FFFaf2"/>
+    <rect x="601" y="431" width="418" height="608" rx="33" stroke="#D6B25F" stroke-opacity="0.16"/>
+    <text x="640" y="500" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Acentos</text>
+
+    <rect x="640" y="540" width="144" height="92" rx="22" fill="#D6B25F"/>
+    <text x="810" y="578" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Azafran</text>
+    <text x="810" y="608" fill="#6D6256" font-family="Consolas, monospace" font-size="22">#D6B25F</text>
+
+    <rect x="640" y="662" width="144" height="92" rx="22" fill="#BF9340"/>
+    <text x="810" y="700" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Azafran fuerte</text>
+    <text x="810" y="730" fill="#6D6256" font-family="Consolas, monospace" font-size="22">#BF9340</text>
+
+    <rect x="640" y="784" width="144" height="92" rx="22" fill="#B56C52"/>
+    <text x="810" y="822" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Arcilla</text>
+    <text x="810" y="852" fill="#6D6256" font-family="Consolas, monospace" font-size="22">#B56C52</text>
+
+    <rect x="640" y="906" width="144" height="92" rx="22" fill="#8C4F40"/>
+    <text x="810" y="944" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Arcilla profunda</text>
+    <text x="810" y="974" fill="#6D6256" font-family="Consolas, monospace" font-size="22">#8C4F40</text>
+  </g>
+
+  <g>
+    <rect x="1080" y="430" width="380" height="610" rx="34" fill="#FFFaf2"/>
+    <rect x="1081" y="431" width="378" height="608" rx="33" stroke="#D6B25F" stroke-opacity="0.16"/>
+    <text x="1120" y="500" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Fondos y apoyo</text>
+
+    <rect x="1120" y="540" width="124" height="92" rx="22" fill="#6F8267"/>
+    <text x="1270" y="578" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Salvia</text>
+    <text x="1270" y="608" fill="#6D6256" font-family="Consolas, monospace" font-size="20">#6F8267</text>
+
+    <rect x="1120" y="662" width="124" height="92" rx="22" fill="#F1CF7F"/>
+    <text x="1270" y="700" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Amarillo suave</text>
+    <text x="1270" y="730" fill="#6D6256" font-family="Consolas, monospace" font-size="20">#F1CF7F</text>
+
+    <rect x="1120" y="784" width="124" height="92" rx="22" fill="#090B11"/>
+    <text x="1270" y="814" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="700">Sala fondo 1</text>
+    <text x="1270" y="844" fill="#6D6256" font-family="Consolas, monospace" font-size="20">#090B11</text>
+
+    <rect x="1120" y="886" width="124" height="44" rx="14" fill="#10141B"/>
+    <text x="1270" y="915" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700">Sala fondo 2</text>
+    <text x="1270" y="938" fill="#6D6256" font-family="Consolas, monospace" font-size="18">#10141B</text>
+
+    <rect x="1120" y="952" width="124" height="44" rx="14" fill="#0B0E14"/>
+    <text x="1270" y="981" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700">Sesion fondo 1</text>
+    <text x="1270" y="1004" fill="#6D6256" font-family="Consolas, monospace" font-size="18">#0B0E14</text>
+
+    <rect x="1120" y="1018" width="124" height="44" rx="14" fill="#12161D"/>
+    <text x="1270" y="1047" fill="#463B30" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="700">Sesion fondo 2</text>
+    <text x="1270" y="1070" fill="#6D6256" font-family="Consolas, monospace" font-size="18">#12161D</text>
+  </g>
+
+  <g>
+    <rect x="180" y="1070" width="400" height="28" rx="14" fill="url(#activeGradient)"/>
+    <text x="600" y="1091" fill="#F2E9DD" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="600">Gradiente de estado activo</text>
+  </g>
+</svg>

@@ -3,34 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kinect Yoga Experience | Prototipo interactivo con Kinect 360</title>
+    <title>Kinect Yoga Experience | Prototipo con Kinect 360</title>
     <meta
       name="description"
-      content="Kinect Yoga Experience es un prototipo interactivo con Kinect 360 y Unity enfocado en yoga guiado, reconocimiento corporal y validación académica con proyección futura hacia bailoterapia."
+      content="GDD resumido de Kinect Yoga Experience: estación interactiva de bienestar y movimiento guiado para gimnasios con Kinect 360, Unity y validación corporal."
     />
-    <meta name="theme-color" content="#03080c" />
+    <meta name="theme-color" content="#140f0c" />
     <meta
       property="og:title"
-      content="Kinect Yoga Experience | Prototipo interactivo con Kinect 360"
+      content="Kinect Yoga Experience | Prototipo con Kinect 360"
     />
     <meta
       property="og:description"
-      content="Tecnología interactiva, bienestar físico y reconocimiento corporal aplicados al diseño de un prototipo académico de yoga guiado."
+      content="Resumen tipo GDD de Kinect Yoga Experience: exergame corporal para gimnasios, sistema técnico, interacción con Kinect y validación del prototipo."
     />
     <meta property="og:type" content="website" />
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='none' stroke='%2300f3ff' stroke-width='6' stroke-dasharray='10 5'/><circle cx='50' cy='50' r='20' fill='%23ff0055'/></svg>"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='none' stroke='%23d6b25f' stroke-width='6' stroke-dasharray='10 5'/><circle cx='50' cy='50' r='20' fill='%23b56c52'/></svg>"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="home-page-body">
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="#portada" aria-label="Ir a la portada de Kinect Yoga Experience">
@@ -46,23 +46,27 @@
           <span aria-hidden="true">ME/NU</span>
         </button>
         <nav class="site-nav" id="main-nav" aria-label="Navegación principal">
-          <a href="#informacion">General</a>
-          <a href="#introduccion">Introducción</a>
-          <a href="#valor">Valor</a>
-          <a href="#alcance">Alcance</a>
+          <a href="#resumen">Resumen</a>
+          <a href="#core">Core</a>
+          <a href="#loop">Loop</a>
+          <a href="#interaccion">Interacción</a>
+          <a href="#direccion">Dirección</a>
+          <a href="#sistema">Sistema</a>
           <a href="#publico">Público</a>
-          <a href="#competencia">Referencias</a>
-          <a class="button nav-cta" href="#contacto">Estado</a>
+          <a class="button nav-cta" href="#validacion">Pruebas</a>
         </nav>
       </header>
 
       <section class="intro-window" id="portada">
         <div class="intro-window-copy">
           <h1 class="intro-window-title epic-text">
-            <span>ESTO ES</span>
+            <span>KINECT</span>
             <span>YOGA</span>
-            <span>MODERNO</span>
+            <span>EXPERIENCE</span>
           </h1>
+          <p class="intro-window-text" data-reveal>
+            Versión estructurada tipo GDD para revisar el contexto de gimnasio, la interacción corporal, el sistema técnico y la validación de Kinect Yoga Experience.
+          </p>
         </div>
 
         <div class="intro-window-visual" aria-hidden="true">
@@ -85,29 +89,29 @@
       <main id="main-content">
         <section class="hero" id="inicio">
           <div class="hero-content">
-            <span class="eyebrow" data-reveal>Tecnología interactiva / bienestar físico / reconocimiento corporal</span>
+            <span class="eyebrow" data-reveal>kinect 360 / unity / exergame / estación para gimnasios</span>
             <h1 data-reveal>Kinect Yoga Experience</h1>
             <p class="lead" data-reveal>
-              Kinect Yoga Experience es un prototipo interactivo que usa Kinect 360 y Unity para guiar posturas de yoga sin controles físicos. El cuerpo del usuario funciona como la interfaz principal y el sistema responde al movimiento con apoyo visual.
+              Kinect Yoga Experience es una estación interactiva de bienestar y movimiento guiado para gimnasios. Este GDD resume cómo el proyecto usa Kinect 360 y Unity para convertir rutinas breves de yoga en una experiencia corporal sin controles físicos, con calibración, progreso visual y una base escalable hacia otros módulos fitness.
             </p>
             <div class="hero-actions" data-reveal>
-              <a href="#informacion" class="button primary">Ver estructura</a>
-              <a href="#valor" class="button ghost">Ver propuesta de valor</a>
-                <a class="button kinect-launch-btn" href="interfaz-kinect.html" aria-label="Abrir la página de interfaz Kinect">
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <circle cx="12" cy="7" r="3" />
-                    <path d="M12 10v5" />
-                    <path d="M8 14l4-4 4 4" />
-                    <path d="M9 18l3 2 3-2" />
-                  </svg>
-                  Diseño de interfaz
-                </a>
+              <a href="#resumen" class="button primary">Ver estructura</a>
+              <a href="#validacion" class="button ghost">Ver plan de pruebas</a>
+              <a class="button kinect-launch-btn" href="interfaz-kinect.html" aria-label="Abrir la página de interfaz Kinect">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <circle cx="12" cy="7" r="3" />
+                  <path d="M12 10v5" />
+                  <path d="M8 14l4-4 4 4" />
+                  <path d="M9 18l3 2 3-2" />
+                </svg>
+                UI / UX del prototipo
+              </a>
             </div>
             <ul class="hero-points" data-reveal aria-label="Resumen general del proyecto">
-              <li>Tecnología principal: Kinect 360</li>
-              <li>Motor de desarrollo: Unity</li>
-              <li>Enfoque actual: yoga guiado</li>
+              <li>Tipo: aplicación interactiva con reconocimiento corporal</li>
+              <li>Contexto: gimnasio o espacio fitness</li>
               <li>Estado: construcción del prototipo base</li>
+              <li>Plataforma: PC Windows con sensor Kinect 360</li>
             </ul>
           </div>
 
@@ -118,25 +122,25 @@
             <div class="orbit orbit-three"></div>
 
             <div class="scan-card">
-              <span class="card-label">BODY_RECOGNITION</span>
-              <p>Lectura corporal, guía visual y respuesta básica del sistema.</p>
+              <span class="card-label">CORE_EXPERIENCE</span>
+              <p>Calma, concentración y acompañamiento visual durante la ejecución corporal.</p>
               <div class="scan-grid"></div>
             </div>
 
             <div class="float-card balance-card">
-              <span class="mini-title">ENFOQUE ACTUAL</span>
-              <strong>POSTURAS DE YOGA</strong>
+              <span class="mini-title">INPUT PRINCIPAL</span>
+              <strong>EL CUERPO COMO INTERFAZ</strong>
             </div>
 
             <div class="float-card rhythm-card">
-              <span class="mini-title">PROYECCIÓN FUTURA</span>
-              <strong>BAILOTERAPIA</strong>
+              <span class="mini-title">PROYECCIÓN</span>
+              <strong>ESCALABLE A BAILOTERAPIA</strong>
             </div>
 
             <div class="main-card">
-              <span class="card-label">PROTOTYPE_STATUS</span>
-              <h3>UNITY + KINECT 360</h3>
-              <p>Construcción de la lógica base de guía y reconocimiento.</p>
+              <span class="card-label">PROJECT_STATUS</span>
+              <h3>KINECT 360 + UNITY</h3>
+              <p>Prototipo organizado para mostrar su experiencia central, sistema técnico y criterios de validación.</p>
               <div class="pulse-bars">
                 <span></span><span></span><span></span><span></span><span></span>
               </div>
@@ -144,32 +148,32 @@
           </div>
         </section>
 
-        <section class="signal-strip" aria-label="Síntesis del proyecto">
+        <section class="signal-strip" aria-label="Síntesis general del proyecto">
           <article class="signal-card" data-reveal>
             <span class="signal-kicker">01</span>
-            <h3>Propósito</h3>
-            <p>Validar si una rutina guiada puede ejecutarse y evaluarse usando solo seguimiento corporal.</p>
+            <h3>Resumen ejecutivo</h3>
+            <p>El proyecto se presenta en una página clara: pitch, alcance, sistema técnico y validación en una sola lectura.</p>
           </article>
           <article class="signal-card" data-reveal>
             <span class="signal-kicker">02</span>
-            <h3>Interacción corporal</h3>
-            <p>El usuario se mueve frente al sensor y el sistema interpreta su postura sin depender de controles manuales.</p>
+            <h3>Core loop</h3>
+            <p>Seleccionar, calibrar, observar, ejecutar, recibir feedback y avanzar: el ciclo central del prototipo queda explícito.</p>
           </article>
           <article class="signal-card" data-reveal>
             <span class="signal-kicker">03</span>
-            <h3>Proyección</h3>
-            <p>Si la base funciona en yoga, la misma lógica podrá extenderse después a bailoterapia.</p>
+            <h3>Validación</h3>
+            <p>La página no solo presenta la idea: también muestra KPIs, pruebas y límites reales del alcance actual.</p>
           </article>
         </section>
 
-        <section class="section programs" id="informacion">
+        <section class="section programs" id="resumen">
           <div class="section-intro" data-reveal>
             <div>
-              <span class="eyebrow">Información general</span>
-              <h2>Datos base del proyecto</h2>
+              <span class="eyebrow">Resumen general</span>
+              <h2>Portada del proyecto y resumen ejecutivo</h2>
             </div>
             <p>
-              Resumen rápido del proyecto: equipo, objetivo, base técnica, enfoque actual y estado del prototipo.
+              La página reúne la información esencial del proyecto: identidad, contexto de gimnasio, pitch, propuesta de valor y estado actual del prototipo.
             </p>
           </div>
 
@@ -177,178 +181,172 @@
             <article class="program-card" data-reveal>
               <div class="program-head">
                 <h3>Nombre del proyecto</h3>
-                <div class="info-card-icon" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" fill="none">
-                    <rect x="10" y="12" width="28" height="20" rx="2" />
-                    <path d="M18 36h12" />
-                    <path d="M24 32v4" />
-                  </svg>
-                </div>
               </div>
               <p>Kinect Yoga Experience</p>
             </article>
             <article class="program-card" data-reveal>
               <div class="program-head">
+                <h3>Tipo de proyecto</h3>
+              </div>
+              <p>Aplicación interactiva con reconocimiento corporal.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Tecnología principal</h3>
+              </div>
+              <p>Kinect 360 como sensor de entrada y Unity como motor de desarrollo.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Plataforma objetivo</h3>
+              </div>
+              <p>PC con Windows y sensor Kinect 360.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
                 <h3>Equipo responsable</h3>
-                <div class="info-card-icon" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" fill="none">
-                    <circle cx="18" cy="17" r="5" />
-                    <circle cx="31" cy="19" r="4" />
-                    <path d="M10 33c2-5 6-8 11-8s9 3 11 8" />
-                    <path d="M27 33c1.5-3.5 4-5.5 7-6" />
-                  </svg>
-                </div>
               </div>
               <p>Matias Alexander Cabrera Navas y Listher Gabriel Vera Vera.</p>
             </article>
             <article class="program-card" data-reveal>
               <div class="program-head">
-                <h3>Base técnica</h3>
-                <div class="info-card-icon" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" fill="none">
-                    <path d="M24 8 35 14v12L24 40 13 26V14L24 8Z" />
-                    <path d="M24 8v12" />
-                    <path d="M35 14 24 20 13 14" />
-                  </svg>
-                </div>
+                <h3>Disciplina y versión</h3>
               </div>
-              <p>Kinect 360 y Unity como base para captura corporal y desarrollo de la experiencia.</p>
+              <p>Diseño y Desarrollo de Experiencias Digitales / RV y videojuegos. Versión 0.1 del proyecto.</p>
             </article>
-            <article class="program-card" data-reveal>
-              <div class="program-head">
-                <h3>Propósito</h3>
-                <div class="info-card-icon" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" fill="none">
-                    <path d="M24 9v8" />
-                    <path d="M24 31v8" />
-                    <path d="M9 24h8" />
-                    <path d="M31 24h8" />
-                    <circle cx="24" cy="24" r="7" />
-                  </svg>
-                </div>
-              </div>
-              <p>Validar una experiencia de yoga guiado basada en seguimiento corporal aplicado al bienestar físico.</p>
+          </div>
+
+          <div class="problem-grid">
+            <article class="panel" data-reveal>
+              <span class="panel-index">01</span>
+              <h3>Pitch</h3>
+              <p>Estación interactiva de bienestar y movimiento guiado para gimnasios con Kinect 360.</p>
             </article>
-            <article class="program-card" data-reveal>
-              <div class="program-head">
-                <h3>Enfoque actual</h3>
-                <div class="info-card-icon" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" fill="none">
-                    <circle cx="24" cy="12" r="4" />
-                    <path d="M24 16v10" />
-                    <path d="M14 24h20" />
-                    <path d="M18 38l6-12 6 12" />
-                  </svg>
-                </div>
-              </div>
-              <p>Rutina básica de yoga con posturas observables y respuesta visual del sistema.</p>
+            <article class="panel" data-reveal>
+              <span class="panel-index">02</span>
+              <h3>Público objetivo</h3>
+              <p>Usuarios de gimnasio y espacios fitness que buscan rutinas breves, guiadas y apoyadas por tecnología interactiva.</p>
             </article>
-            <article class="program-card" data-reveal>
-              <div class="program-head">
-                <h3>Estado y proyección</h3>
-                <div class="info-card-icon" aria-hidden="true">
-                  <svg viewBox="0 0 48 48" fill="none">
-                    <path d="M24 10a14 14 0 1 1-14 14" />
-                    <path d="M24 16v8l6 4" />
-                  </svg>
-                </div>
-              </div>
-              <p>Se está construyendo la lógica base de guía y reconocimiento, con proyección posterior hacia bailoterapia.</p>
+            <article class="panel" data-reveal>
+              <span class="panel-index">03</span>
+              <h3>Propuesta de valor</h3>
+              <p>Convertir el cuerpo en la interfaz principal para ofrecer una estación autónoma de exergame con calibración y feedback visual.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="panel-index">04</span>
+              <h3>Estado actual</h3>
+              <p>Prototipo base en construcción, orientado a validar reconocimiento corporal, claridad visual y tiempos de respuesta.</p>
             </article>
           </div>
         </section>
 
-        <section class="section platform" id="introduccion">
+        <section class="section platform" id="core">
           <div class="platform-layout">
             <div class="dashboard-shell" data-reveal>
               <div class="tech-img-box hero-image-box intro-image-box">
                 <img
                   src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1200&q=80"
-                  alt="Persona realizando yoga en una experiencia guiada"
+                  alt="Persona realizando una postura de yoga frente a una guía digital"
                 />
               </div>
               <div class="status-stack intro-stack">
                 <article>
-                  <span>Interacción</span>
-                  <strong>SIN CONTROLES FÍSICOS</strong>
+                  <span>Emoción principal</span>
+                  <strong>CALMA Y CONCENTRACIÓN</strong>
                 </article>
                 <article>
-                  <span>Entrada principal</span>
-                  <strong>EL CUERPO DEL USUARIO</strong>
+                  <span>Acción principal</span>
+                  <strong>POSTURAS BÁSICAS FRENTE AL SENSOR</strong>
                 </article>
                 <article>
-                  <span>Lógica inicial</span>
-                  <strong>YOGA GUIADO Y OBSERVABLE</strong>
+                  <span>Sensación final</span>
+                  <strong>PROGRESO Y CONFIANZA GUIADA</strong>
                 </article>
               </div>
             </div>
 
             <div class="platform-copy" data-reveal>
-              <span class="eyebrow">Introducción</span>
-              <h2>Cómo funciona la propuesta</h2>
+              <span class="eyebrow">Core Experience</span>
+              <h2>La experiencia central del proyecto</h2>
               <p>
-                Kinect Yoga Experience usa Kinect 360 para detectar la postura del usuario y reemplazar los controles tradicionales por movimiento corporal. La experiencia se apoya en una guía visual que orienta cada ejercicio de forma más natural.
+                La experiencia busca que el usuario se sienta acompañado por una guía digital clara, tranquila y fácil de seguir. El reto no es competir, sino comprender la postura, ejecutarla frente al Kinect y recibir una respuesta visual que indique si el sistema reconoce el cuerpo de forma adecuada.
               </p>
               <p>
-                La primera fase se centra en yoga porque sus movimientos son controlados, repetibles y fáciles de observar. Eso permite probar reconocimiento, retroalimentación y claridad de uso antes de llevar la misma base a rutinas de bailoterapia.
+                Frase resumen: practicar yoga usando el cuerpo como interfaz principal, con una guía visual que responde al movimiento del usuario.
               </p>
             </div>
-          </div>
-        </section>
-
-        <section class="section problem" id="valor">
-          <div class="section-intro" data-reveal>
-            <div>
-              <span class="eyebrow">Propuesta de valor</span>
-              <h2>Por qué la propuesta es clara y útil</h2>
-            </div>
-            <p>
-              La propuesta reúne tres acciones en un mismo flujo: mostrar la postura, reconocer el movimiento y responder al usuario con retroalimentación visual.
-            </p>
           </div>
 
           <div class="problem-grid">
             <article class="panel" data-reveal>
-              <div class="panel-icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <circle cx="32" cy="12" r="6" />
-                  <path d="M21 28c4-5 8-8 11-8s7 3 11 8" />
-                  <path d="M32 18v16" />
-                  <path d="M18 30l14 6 14-6" />
-                  <path d="M24 46l8-12 8 12" />
-                </svg>
-              </div>
               <span class="panel-index">01</span>
-              <h3>Interacción natural</h3>
-              <p>El cuerpo es el control principal, así que la rutina se sigue de forma más intuitiva que con botones o menús.</p>
+              <h3>Tipo de reto</h3>
+              <p>Imitar una postura guía, mantener el equilibrio y ubicarse correctamente frente al sensor Kinect.</p>
             </article>
             <article class="panel" data-reveal>
-              <div class="panel-icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <rect x="10" y="14" width="16" height="16" rx="2" />
-                  <rect x="38" y="14" width="16" height="16" rx="2" />
-                  <rect x="24" y="38" width="16" height="16" rx="2" />
-                  <path d="M26 22h12" />
-                  <path d="M20 30l10 8" />
-                  <path d="M44 30L34 38" />
-                </svg>
-              </div>
               <span class="panel-index">02</span>
-              <h3>Guía + detección + respuesta</h3>
-              <p>El sistema no solo muestra ejercicios: también observa la ejecución y entrega una respuesta visual durante la rutina.</p>
+              <h3>Tipo de recompensa</h3>
+              <p>Feedback visual, avance de rutina y confirmación de que el reconocimiento corporal funciona de forma estable.</p>
             </article>
             <article class="panel" data-reveal>
-              <div class="panel-icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <path d="M32 10c10 6 16 16 16 28l-16-8-16 8c0-12 6-22 16-28Z" />
-                  <path d="M24 42h16" />
-                  <path d="M28 48h8" />
-                  <circle cx="32" cy="24" r="4" />
-                </svg>
-              </div>
               <span class="panel-index">03</span>
-              <h3>Base medible y escalable</h3>
-              <p>El prototipo permite evaluar claridad, utilidad y reconocimiento técnico, y deja una base lista para crecer hacia otras rutinas.</p>
+              <h3>Relación usuario-sistema</h3>
+              <p>El usuario ejecuta la postura, Kinect captura el cuerpo y la interfaz comunica el estado de la ejecución.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section programs" id="loop">
+          <div class="section-intro" data-reveal>
+            <div>
+              <span class="eyebrow">Core Loop</span>
+              <h2>El ciclo principal de la experiencia</h2>
+            </div>
+            <p>
+              El loop debe ser simple, repetible y fácil de comprender. Cada vuelta permite ejecutar una postura, recibir feedback y decidir si el usuario corrige o avanza.
+            </p>
+          </div>
+
+          <div class="scope-grid">
+            <article class="contact-card" data-reveal>
+              <span class="eyebrow small-eyebrow">Secuencia principal</span>
+              <ul class="feature-list compact-list">
+                <li><span aria-hidden="true">01</span><div>Seleccionar rutina.</div></li>
+                <li><span aria-hidden="true">02</span><div>Calibrar el cuerpo frente al Kinect.</div></li>
+                <li><span aria-hidden="true">03</span><div>Observar la postura guía.</div></li>
+                <li><span aria-hidden="true">04</span><div>Ejecutar el movimiento.</div></li>
+                <li><span aria-hidden="true">05</span><div>Kinect detecta la postura.</div></li>
+                <li><span aria-hidden="true">06</span><div>El sistema entrega feedback visual.</div></li>
+                <li><span aria-hidden="true">07</span><div>El usuario corrige o avanza.</div></li>
+                <li><span aria-hidden="true">08</span><div>Siguiente postura.</div></li>
+              </ul>
+            </article>
+            <article class="contact-card" data-reveal>
+              <span class="eyebrow small-eyebrow">Qué sostiene el loop</span>
+              <ul class="feature-list compact-list">
+                <li><span aria-hidden="true">A</span><div>Vincula selección, calibración, acción corporal, reconocimiento y retroalimentación.</div></li>
+                <li><span aria-hidden="true">B</span><div>Permite repetir la misma lógica en varias posturas sin cambiar la interfaz central.</div></li>
+                <li><span aria-hidden="true">C</span><div>Hace medible la experiencia al observar tiempos, errores y claridad de uso.</div></li>
+                <li><span aria-hidden="true">D</span><div>Sirve como base para una futura expansión hacia bailoterapia sin rediseñar el núcleo.</div></li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="problem-grid">
+            <article class="panel" data-reveal>
+              <span class="panel-index">01</span>
+              <h3>Simple</h3>
+              <p>El usuario siempre entiende qué sigue: calibrar, observar, ejecutar, recibir feedback y continuar.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="panel-index">02</span>
+              <h3>Repetible</h3>
+              <p>La misma estructura permite probar varias posturas con una base de interacción constante.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="panel-index">03</span>
+              <h3>Medible</h3>
+              <p>El loop hace visibles los puntos de fallo: tracking, selección por gesto, comprensión y tiempo de respuesta.</p>
             </article>
           </div>
         </section>
@@ -357,31 +355,331 @@
           <div class="section-intro" data-reveal>
             <div>
               <span class="eyebrow">Alcance del proyecto</span>
-              <h2>Qué cubre esta fase y qué queda fuera por ahora</h2>
+              <h2>Qué demuestra esta fase y qué queda fuera</h2>
             </div>
             <p>
-              Esta etapa se enfoca en construir el prototipo funcional y comprobar si la experiencia es clara, útil y técnicamente viable.
+              La prioridad actual es validar si la interacción corporal, la guía visual y el reconocimiento básico de posturas funcionan de manera comprensible y técnicamente viable.
             </p>
           </div>
 
           <div class="scope-grid">
             <article class="contact-card" data-reveal>
-              <span class="eyebrow small-eyebrow">Incluye en esta etapa</span>
+              <span class="eyebrow small-eyebrow">Incluye</span>
               <ul class="feature-list compact-list">
-                <li><span aria-hidden="true">01</span><div>Guiar una rutina básica de yoga mediante Kinect 360.</div></li>
-                <li><span aria-hidden="true">02</span><div>Registrar el reconocimiento de posturas corporales.</div></li>
-                <li><span aria-hidden="true">03</span><div>Ofrecer retroalimentación visual inicial al usuario.</div></li>
-                <li><span aria-hidden="true">04</span><div>Medir reconocimiento, tiempo de respuesta y claridad de uso.</div></li>
+                <li><span aria-hidden="true">01</span><div>Rutina básica de yoga mediante Kinect 360.</div></li>
+                <li><span aria-hidden="true">02</span><div>Reconocimiento inicial de posturas corporales.</div></li>
+                <li><span aria-hidden="true">03</span><div>Retroalimentación visual durante la ejecución.</div></li>
+                <li><span aria-hidden="true">04</span><div>Medición de reconocimiento, tiempo de respuesta y claridad de uso.</div></li>
               </ul>
             </article>
             <article class="contact-card" data-reveal>
-              <span class="eyebrow small-eyebrow">No contempla todavía</span>
+              <span class="eyebrow small-eyebrow">No incluye todavía</span>
               <ul class="feature-list compact-list">
-                <li><span aria-hidden="true">01</span><div>Una plataforma comercial completa.</div></li>
-                <li><span aria-hidden="true">02</span><div>Rutinas avanzadas o personalización profunda de ejercicios.</div></li>
+                <li><span aria-hidden="true">01</span><div>Plataforma comercial completa.</div></li>
+                <li><span aria-hidden="true">02</span><div>Rutinas avanzadas o personalización profunda.</div></li>
                 <li><span aria-hidden="true">03</span><div>Monitoreo clínico especializado.</div></li>
                 <li><span aria-hidden="true">04</span><div>Bailoterapia antes de validar el sistema base de yoga.</div></li>
               </ul>
+            </article>
+          </div>
+
+          <div class="problem-grid">
+            <article class="panel" data-reveal>
+              <span class="panel-index">01</span>
+              <h3>Prioridad</h3>
+              <p>Comprobar que el prototipo se entiende, responde y guía de forma suficiente para una primera validación funcional.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="panel-index">02</span>
+              <h3>Motivo del recorte</h3>
+              <p>Evitar prometer más de lo que el prototipo puede demostrar en esta fase de construcción.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="panel-index">03</span>
+              <h3>Resultado esperado</h3>
+              <p>Una base funcional y medible que permita iterar la interfaz y el reconocimiento antes de escalar el sistema.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section problem" id="interaccion">
+          <div class="section-intro" data-reveal>
+            <div>
+              <span class="eyebrow">Mecánicas e interacción</span>
+              <h2>Cómo se mueve el usuario y cómo responde el sistema</h2>
+            </div>
+            <p>
+              El input principal no es teclado, mouse ni mando. Kinect 360 capta el cuerpo del usuario y Unity interpreta esa información para activar respuestas visuales y navegación por gesto.
+            </p>
+          </div>
+
+          <div class="problem-grid">
+            <article class="panel" data-reveal>
+              <span class="panel-index">01</span>
+              <h3>Acciones del usuario</h3>
+              <p>Observar la postura guía, ubicarse frente al sensor, seleccionar opciones con la mano, ejecutar posturas básicas, mantenerlas y corregir su posición según el feedback.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="panel-index">02</span>
+              <h3>Acciones del sistema</h3>
+              <p>Detectar el cuerpo, validar encuadre, reconocer partes principales, mostrar la postura actual, indicar progreso y alertar si el tracking pierde estabilidad.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="panel-index">03</span>
+              <h3>Condiciones de éxito</h3>
+              <p>Usuario detectado, postura entendible visualmente, rango correcto frente al sensor y feedback suficientemente claro para avanzar.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="panel-index">04</span>
+              <h3>Condiciones de fallo</h3>
+              <p>Usuario fuera del encuadre, pérdida de tracking, postura no reconocida o mensajes visuales demasiado ambiguos para corregir.</p>
+            </article>
+          </div>
+
+          <div class="info-grid">
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Tipo de input</h3>
+              </div>
+              <p>Movimiento corporal detectado por Kinect 360.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Navegación</h3>
+              </div>
+              <p>Selección por gesto, manteniendo la mano sobre una opción.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Condición previa</h3>
+              </div>
+              <p>Calibración corporal estable antes de iniciar la rutina.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Feedback visual</h3>
+              </div>
+              <p>Tracking estable, selección confirmada, barra de progreso, mensajes de corrección y postura reconocida.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Gestos principales</h3>
+              </div>
+              <p>Mantener la mano sobre una opción, ubicarse en el marco de calibración y ejecutar la postura indicada.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Referencia interactiva</h3>
+              </div>
+              <p>La secuencia de pantallas del prototipo muestra cómo se traducen estas decisiones a la UI/UX real.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section references" id="direccion">
+          <div class="section-intro" data-reveal>
+            <div>
+              <span class="eyebrow">Arte, UI / UX y accesibilidad</span>
+              <h2>Dirección visual y tecnología holográfica</h2>
+            </div>
+            <p>
+              La propuesta visual plantea una atmósfera digital inmersiva, limpia y de alto contraste inspirada en escáneres topográficos y pantallas HUD tecnológicas.
+            </p>
+          </div>
+
+          <div class="problem-grid">
+            <article class="panel" data-reveal>
+              <span class="swatch-chip" style="--swatch: #140f0c"></span>
+              <span class="panel-index" style="color:#140f0c">#140f0c</span>
+              <h3>Base nocturna</h3>
+              <p>Color de fondo principal de la interfaz. Aporta profundidad, silencio visual y permite que los acentos cálidos respiren sin ruido.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="swatch-chip" style="--swatch: #d6b25f"></span>
+              <span class="panel-index" style="color:#d6b25f">#d6b25f</span>
+              <h3>Dorado guía</h3>
+              <p>Acento principal de la interfaz para títulos, marcos, estados destacados y focos visuales que orientan al usuario.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="swatch-chip" style="--swatch: #fffaf2"></span>
+              <span class="panel-index" style="color:#fffaf2">#fffaf2</span>
+              <h3>Crema de interfaz</h3>
+              <p>Superficie clara para tarjetas, paneles y bloques de lectura. Suaviza el contraste y hace que el contenido se sienta más calmado.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="swatch-chip" style="--swatch: #b56c52"></span>
+              <span class="panel-index" style="color:#b56c52">#b56c52</span>
+              <h3>Arcilla activa</h3>
+              <p>Color de énfasis para respuestas del sistema, llamadas de atención suaves y momentos donde la interfaz necesita marcar acción.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="swatch-chip" style="--swatch: #6f8267"></span>
+              <span class="panel-index" style="color:#6f8267">#6f8267</span>
+              <h3>Salvia serena</h3>
+              <p>Color de soporte para progreso, estados tranquilos y señales de acompañamiento, reforzando la sensación de yoga y equilibrio.</p>
+            </article>
+          </div>
+
+          <div class="section-intro secondary-intro" data-reveal>
+            <div>
+              <span class="eyebrow small-eyebrow">UI / UX</span>
+              <h3>Arquitectura de pantallas</h3>
+            </div>
+            <p>El prototipo se organiza en cinco pantallas principales para que la interacción por gesto siga siendo clara cuando el usuario está en movimiento.</p>
+          </div>
+
+          <div class="info-grid">
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Menú principal</h3>
+              </div>
+              <p>Permite acceder a Yoga, Calibración y Créditos mediante selección por gesto sostenido.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Selección de serie</h3>
+              </div>
+              <p>Presenta rutas organizadas por respiración, equilibrio, flexibilidad y control postural.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Rutina</h3>
+              </div>
+              <p>Muestra cámara Kinect, postura actual, tiempo, progreso y siguiente movimiento.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Calibración</h3>
+              </div>
+              <p>Verifica encuadre, distancia, alineación corporal y estabilidad del tracking antes de empezar.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Créditos</h3>
+              </div>
+              <p>Presenta al equipo responsable y cierra el recorrido visual del prototipo.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Componentes UI</h3>
+              </div>
+              <p>Botones por gesto, barra de progreso, temporizador, marco de calibración y mensajes de éxito o corrección.</p>
+            </article>
+          </div>
+
+          <div class="scope-grid">
+            <article class="contact-card" data-reveal>
+              <span class="eyebrow small-eyebrow">Accesibilidad</span>
+              <ul class="feature-list compact-list">
+                <li><span aria-hidden="true">01</span><div>Textos grandes y legibles.</div></li>
+                <li><span aria-hidden="true">02</span><div>Alto contraste entre fondo y texto.</div></li>
+                <li><span aria-hidden="true">03</span><div>Instrucciones breves y directas.</div></li>
+                <li><span aria-hidden="true">04</span><div>Tiempo suficiente para ejecutar cada postura.</div></li>
+                <li><span aria-hidden="true">05</span><div>Rutinas iniciales de baja dificultad y sin movimientos bruscos.</div></li>
+                <li><span aria-hidden="true">06</span><div>Claridad sobre la distancia recomendada frente al sensor.</div></li>
+              </ul>
+            </article>
+            <article class="contact-card" data-reveal>
+              <span class="eyebrow small-eyebrow">Regla visual</span>
+              <ul class="feature-list compact-list">
+                <li><span aria-hidden="true">A</span><div>La paleta oscura y holográfica debe dominar toda la experiencia.</div></li>
+                <li><span aria-hidden="true">B</span><div>Los acentos energéticos (magenta, rosa) solo aparecen para feedback y alertas.</div></li>
+                <li><span aria-hidden="true">C</span><div>La interfaz HUD debe verse inmersiva, sin parecer un menú de ofimática genérico.</div></li>
+                <li><span aria-hidden="true">D</span><div>Legibilidad absoluta de la postura: el outline neón del usuario debe destacar siempre.</div></li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="section programs" id="sistema">
+          <div class="section-intro" data-reveal>
+            <div>
+              <span class="eyebrow">Sistema técnico y analítica</span>
+              <h2>De la captura corporal a los KPIs del prototipo</h2>
+            </div>
+            <p>
+              El sistema se construye con Kinect 360 y Unity. La cadena técnica va desde la detección corporal hasta la retroalimentación visual, y la validación se apoya en eventos y métricas claras.
+            </p>
+          </div>
+
+          <div class="info-grid">
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Usuario</h3>
+              </div>
+              <p>Ejecuta la postura, decide la corrección y completa la rutina guiada.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Kinect 360</h3>
+              </div>
+              <p>Sensor de entrada encargado de capturar el movimiento corporal del usuario.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Captura corporal</h3>
+              </div>
+              <p>Traduce la presencia y posición del cuerpo en datos utilizables por la lógica del sistema.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Unity</h3>
+              </div>
+              <p>Motor responsable de procesar información, interfaz y flujo del prototipo.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Lógica de reconocimiento</h3>
+              </div>
+              <p>Decide si la postura es válida, si el tracking es estable y qué feedback debe mostrarse.</p>
+            </article>
+            <article class="program-card" data-reveal>
+              <div class="program-head">
+                <h3>Interfaz visual</h3>
+              </div>
+              <p>Comunica postura actual, progreso, corrección, espera y confirmación de éxito.</p>
+            </article>
+          </div>
+
+          <div class="scope-grid">
+            <article class="contact-card" data-reveal>
+              <span class="eyebrow small-eyebrow">Componentes técnicos</span>
+              <ul class="feature-list compact-list">
+                <li><span aria-hidden="true">01</span><div>PC con Windows.</div></li>
+                <li><span aria-hidden="true">02</span><div>Sensor Kinect 360.</div></li>
+                <li><span aria-hidden="true">03</span><div>Unity como motor de desarrollo.</div></li>
+                <li><span aria-hidden="true">04</span><div>Sistema de calibración corporal.</div></li>
+                <li><span aria-hidden="true">05</span><div>Sistema de detección de postura.</div></li>
+                <li><span aria-hidden="true">06</span><div>Módulo de retroalimentación visual.</div></li>
+              </ul>
+            </article>
+            <article class="contact-card" data-reveal>
+              <span class="eyebrow small-eyebrow">Aspectos a cuidar</span>
+              <ul class="feature-list compact-list">
+                <li><span aria-hidden="true">A</span><div>Rango de detección del Kinect.</div></li>
+                <li><span aria-hidden="true">B</span><div>Distancia del usuario frente al sensor.</div></li>
+                <li><span aria-hidden="true">C</span><div>Iluminación del espacio.</div></li>
+                <li><span aria-hidden="true">D</span><div>Estabilidad del tracking.</div></li>
+                <li><span aria-hidden="true">E</span><div>Tiempo de respuesta del sistema.</div></li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="problem-grid">
+            <article class="panel" data-reveal>
+              <span class="panel-index">EVT</span>
+              <h3>Eventos clave</h3>
+              <p>Inicio de sesión, usuario detectado, calibración completada, postura iniciada, postura reconocida, fallo de tracking y rutina finalizada.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="panel-index">KPI</span>
+              <h3>KPIs técnicos</h3>
+              <p>Tiempo de calibración, tiempo de respuesta, porcentaje de posturas reconocidas, errores de tracking y pérdida de detección corporal.</p>
+            </article>
+            <article class="panel" data-reveal>
+              <span class="panel-index">UX</span>
+              <h3>KPIs de experiencia</h3>
+              <p>Claridad de instrucciones, facilidad para seleccionar opciones, comprensión de la postura guía, utilidad del feedback y tasa de finalización.</p>
             </article>
           </div>
         </section>
@@ -390,10 +688,10 @@
           <div class="section-intro" data-reveal>
             <div>
               <span class="eyebrow">Público objetivo</span>
-              <h2>Quién lo usaría y quién lo evaluaría</h2>
+              <h2>Usuarios principales, secundarios y buyer personas</h2>
             </div>
             <p>
-              El prototipo está pensado tanto para personas que necesitan una guía corporal clara como para equipos interesados en estudiar esta forma de interacción.
+              El prototipo está dirigido tanto a personas interesadas en bienestar físico guiado como a estudiantes e investigadores que analizan interfaces corporales y seguimiento de movimiento.
             </p>
           </div>
 
@@ -402,106 +700,79 @@
               <div class="tech-img-box persona-img-box">
                 <img
                   src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80"
-                  alt="Jóvenes y adultos realizando actividad física guiada"
+                  alt="Personas realizando actividad física guiada"
                 />
               </div>
               <div class="program-head">
                 <h3>Público principal</h3>
               </div>
-              <p>Personas que quieran seguir una rutina guiada sin usar controles físicos y con instrucciones fáciles de entender.</p>
+              <p>Personas interesadas en bienestar físico, yoga básico y rutinas guiadas sin controles físicos ni presión competitiva.</p>
             </article>
             <article class="audience-card" data-reveal>
               <div class="tech-img-box persona-img-box">
                 <img
                   src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
-                  alt="Estudiantes e investigadores revisando un prototipo tecnológico"
+                  alt="Estudiantes e investigadores revisando un prototipo interactivo"
                 />
               </div>
               <div class="program-head">
                 <h3>Público secundario</h3>
               </div>
-              <p>Estudiantes, investigadores y desarrolladores interesados en interfaces corporales, seguimiento de movimiento y experiencias guiadas.</p>
+              <p>Estudiantes, investigadores y desarrolladores interesados en interfaces corporales, seguimiento de movimiento y experiencias tecnológicas accesibles.</p>
             </article>
             <article class="audience-card" data-reveal>
               <div class="program-head">
                 <h3>Necesidades principales</h3>
               </div>
-              <p>Instrucciones claras, movimientos fáciles de seguir y retroalimentación visible mientras realizan la rutina.</p>
+              <p>Instrucciones claras, movimientos fáciles de seguir, retroalimentación visible, interfaz simple y una experiencia guiada sin fricción innecesaria.</p>
               <div class="chip-row">
                 <span>Claridad</span>
-                <span>Guía estructurada</span>
-                <span>Evaluación funcional</span>
+                <span>Feedback visible</span>
+                <span>Interacción corporal</span>
               </div>
             </article>
           </div>
 
-          <div class="section-intro secondary-intro" data-reveal style="margin-top: 5rem;">
+          <div class="section-intro secondary-intro" data-reveal>
             <div>
-              <span class="eyebrow small-eyebrow">Perfiles de usuario</span>
-              <h3>Buyer Personas</h3>
+              <span class="eyebrow small-eyebrow">Buyer personas</span>
+              <h3>Perfiles de usuario para validación</h3>
             </div>
-            <p>Representación de los usuarios ideales según la estructura del proyecto y su proyección.</p>
+            <p>La propuesta contempla tres perfiles para evaluar claridad, accesibilidad y proyección futura del prototipo.</p>
           </div>
 
           <div class="problem-grid">
             <article class="panel" data-reveal>
-              <div class="panel-icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <circle cx="32" cy="20" r="10" />
-                  <path d="M16 52c0-9 7-16 16-16s16 7 16 16" />
-                </svg>
-              </div>
               <span class="panel-index">BP1</span>
-              <h3>Joven universitaria (Bienestar físico)</h3>
-              <p>Busca actividades guiadas sin presión competitiva. Valora las instrucciones claras, la comodidad y alternativas accesibles para sumar movimiento a su rutina diaria frente a pantallas.</p>
+              <h3>Joven universitaria</h3>
+              <p>Busca una actividad guiada, accesible y sin presión competitiva. Valora instrucciones claras y una rutina fácil de integrar a su día.</p>
             </article>
             <article class="panel" data-reveal>
-              <div class="panel-icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <path d="M22 16h20v12H22z" />
-                  <path d="M32 28v12" />
-                  <path d="M16 40h32v8H16z" />
-                </svg>
-              </div>
               <span class="panel-index">BP2</span>
-              <h3>Adulto joven (Tecnología interactiva)</h3>
-              <p>Usuario afín a videojuegos e innovación. Aprecia que el sistema cuente con una interacción corporal estable, que funcione de manera comprensible más allá del entretenimiento puro.</p>
+              <h3>Adulto joven tecnológico</h3>
+              <p>Se interesa por experiencias innovadoras y espera que el cuerpo funcione como entrada principal de manera comprensible y estable.</p>
             </article>
             <article class="panel" data-reveal>
-              <div class="panel-icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64" fill="none">
-                  <path d="M16 24s8-8 16 0 16 0 16 0" />
-                  <path d="M16 32s8-8 16 0 16 0 16 0" />
-                  <path d="M16 40s8-8 16 0 16 0 16 0" />
-                </svg>
-              </div>
               <span class="panel-index">BP3</span>
-              <h3>Usuaria proyectada (Bailoterapia)</h3>
-              <p>Perfil para la futura expansión del proyecto. Encuentra valor en dinámicas musicales lideradas por interfaz, validando la escalabilidad del prototipo de yoga a rutinas rítmicas.</p>
+              <h3>Usuario proyectado para bailoterapia</h3>
+              <p>Representa una posible expansión futura. No forma parte de la validación principal actual, pero orienta la escalabilidad del sistema.</p>
             </article>
           </div>
         </section>
 
-        <section class="section references" id="competencia">
+        <section class="section references" id="referencias">
           <div class="section-intro" data-reveal>
-            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: flex-end; width: 100%;">
-              <div>
-                <span class="eyebrow">Competencia y referencias</span>
-                <h2>Referentes y Moodboard</h2>
-              </div>
-              <a href="https://pin.it/kdKQXzgt9" target="_blank" rel="noopener noreferrer" class="button primary" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0a12 12 0 0 0-4.37 23.17c-.07-.74-.14-1.89.03-2.7l1.14-4.83s-.29-.58-.29-1.44c0-1.35.79-2.36 1.76-2.36.83 0 1.23.63 1.23 1.38 0 .84-.53 2.1-.81 3.27-.23.98.5 1.78 1.46 1.78 1.76 0 3.1-1.86 3.1-4.55 0-2.37-1.7-4.03-4.14-4.03-3.05 0-4.82 2.29-4.82 4.63 0 .84.32 1.74.72 2.23.08.1.09.18.06.29l-.27 1.1c-.04.16-.13.2-.3.12-1.12-.52-1.82-2.16-1.82-3.48 0-2.83 2.06-5.43 5.92-5.43 3.11 0 5.53 2.21 5.53 5.17 0 3.09-1.95 5.57-4.66 5.57-.9 0-1.76-.47-2.05-1.03l-.56 2.12c-.2.78-.75 1.75-1.12 2.34A12 12 0 1 0 12 0z"/></svg>
-                Ver Moodboard
-              </a>
+            <div>
+              <span class="eyebrow">Referencias funcionales</span>
+              <h2>Inspiraciones y diferenciación del proyecto</h2>
             </div>
             <p>
-              Estas referencias no compiten de forma directa con el proyecto, pero aportan ideas concretas para construir la experiencia: guía visual, seguimiento del cuerpo y estructura de rutina.
+              Estas referencias no funcionan como copia ni como competencia directa. Sirven para explicar qué elementos inspiran el proyecto y dónde se ubica Kinect Yoga Experience dentro de esa conversación.
             </p>
           </div>
 
-          <!-- Referencias Principales -->
           <div class="main-references-grid">
-            <article class="main-reference-card" data-reveal="fade-up">
+            <article class="main-reference-card" data-reveal>
               <div class="tech-img-box animate-scan">
                 <img
                   src="Referencias/Just%20dance.png"
@@ -514,15 +785,14 @@
                 <div class="program-head">
                   <h3>Just Dance</h3>
                 </div>
-                <p>Sirve como referencia por su seguimiento corporal y su guía visual, aunque su objetivo principal sea el entretenimiento.</p>
+                <p>Referencia por su guía visual y por la relación entre cuerpo e interfaz, aunque su objetivo principal sea el entretenimiento.</p>
               </div>
             </article>
-
-            <article class="main-reference-card" data-reveal="fade-up" style="animation-delay: 200ms;">
+            <article class="main-reference-card" data-reveal>
               <div class="tech-img-box animate-scan">
                 <img
                   src="Referencias/ZumbaFitness.png"
-                  alt="Clases guiadas con impacto rítmico como Zumba"
+                  alt="Referencia de Zumba Fitness como rutina guiada"
                   loading="lazy"
                 />
                 <div class="scan-line"></div>
@@ -531,91 +801,111 @@
                 <div class="program-head">
                   <h3>Zumba Fitness</h3>
                 </div>
-                <p>Aporta una lógica de rutina guiada y movimiento continuo, pero con menos foco en precisión postural.</p>
+                <p>Aporta la lógica de rutina guiada y movimiento continuo, pero con menor foco en precisión postural y calma.</p>
               </div>
             </article>
           </div>
 
-          <!-- Referencias Secundarias -->
           <div class="section-intro secondary-intro" data-reveal>
             <div>
-              <span class="eyebrow small-eyebrow">Referencias secundarias</span>
-              <h3>Diferencias clave</h3>
+              <span class="eyebrow small-eyebrow">Referencias complementarias</span>
+              <h3>Diferenciación de Kinect Yoga Experience</h3>
             </div>
+            <p>La propuesta toma ideas del ejercicio guiado y de la captura corporal, pero las orienta a la validación de una experiencia de yoga acompañada por feedback visual.</p>
           </div>
 
           <div class="program-grid reference-grid">
-            <article class="program-card secondary-card" data-reveal="fade-up">
+            <article class="program-card secondary-card" data-reveal>
               <div class="program-head">
                 <h3>Entrenamiento tradicional</h3>
               </div>
-              <p>Sirve como referencia por su estructura paso a paso, pero no interpreta la postura del usuario en tiempo real.</p>
+              <p>Sirve como referencia por su organización paso a paso, pero no interpreta la postura del usuario en tiempo real.</p>
             </article>
-            <article class="program-card secondary-card" data-reveal="fade-up" style="animation-delay: 200ms;">
+            <article class="program-card secondary-card" data-reveal>
               <div class="program-head">
-                <h3>Diferencia clave local</h3>
+                <h3>Yoga guiado</h3>
               </div>
-              <p>Kinect Yoga Experience pone el foco en reconocer la ejecución corporal y usar esa lectura como parte central de la experiencia.</p>
+              <p>Inspira el foco en respiración, equilibrio, postura y calma, que son la base experiencial de esta primera fase.</p>
+            </article>
+            <article class="program-card secondary-card" data-reveal>
+              <div class="program-head">
+                <h3>Diferencia clave</h3>
+              </div>
+              <p>El valor del proyecto no es solo mostrar ejercicios, sino reconocer la ejecución corporal y responder visualmente al usuario.</p>
             </article>
           </div>
 
-          <div class="section-intro position-intro" data-reveal>
+          <div class="scope-grid">
+            <article class="contact-card" data-reveal>
+              <span class="eyebrow small-eyebrow">Multijugador</span>
+              <p>No aplica en la versión actual. La experiencia se plantea como individual para validar primero reconocimiento corporal, calibración, claridad de interfaz y retroalimentación visual.</p>
+            </article>
+            <article class="contact-card" data-reveal>
+              <span class="eyebrow small-eyebrow">Monetización</span>
+              <p>No aplica como eje principal en esta fase. El proyecto sigue centrado en construir y validar la experiencia base antes de explorar una salida comercial.</p>
+            </article>
+          </div>
+
+          <div class="section-intro secondary-intro" data-reveal>
             <div>
-              <span class="eyebrow">Posicionamiento del proyecto</span>
-              <h2>Dónde se ubica la propuesta</h2>
+              <span class="eyebrow small-eyebrow">Base de trabajo</span>
+              <h3>Estructura y referentes</h3>
             </div>
-            <p>
-              La propuesta toma ideas del ejercicio guiado y de la captura corporal, pero las orienta a un objetivo concreto: validar un sistema de yoga guiado que luego pueda evolucionar hacia otras rutinas basadas en movimiento.
-            </p>
+            <p>La organización de esta página se apoya en referentes de estructura, criterios de validación e interfaz ya definidos para el proyecto.</p>
+          </div>
+
+          <div class="program-grid reference-grid">
+            <article class="program-card secondary-card" data-reveal>
+              <div class="program-head">
+                <h3>Estructura general</h3>
+              </div>
+              <p>Sirve como base del orden narrativo de la página y de la jerarquía principal del contenido.</p>
+            </article>
+            <article class="program-card secondary-card" data-reveal>
+              <div class="program-head">
+                <h3>Datos y validación</h3>
+              </div>
+              <p>Complementa la organización de métricas, analítica y plan de pruebas del prototipo.</p>
+            </article>
+            <article class="program-card secondary-card" data-reveal>
+              <div class="program-head">
+                <h3>Sitio e interfaz del proyecto</h3>
+              </div>
+              <p>La web resume y presenta; la interfaz Kinect muestra cómo se traduce esa lógica a pantallas reales.</p>
+              <a class="button ghost" href="interfaz-kinect.html">Ver interfaz Kinect</a>
+            </article>
           </div>
         </section>
 
-        <section class="section cta" id="contacto">
+        <section class="section cta" id="validacion">
           <div class="cta-shell">
             <div class="cta-copy" data-reveal>
-              <span class="eyebrow">Estado del proyecto</span>
-              <h2>Estado actual del prototipo</h2>
+              <span class="eyebrow">Plan de pruebas</span>
+              <h2>Validación técnica y experiencial del prototipo</h2>
               <p>
-                Ahora mismo el proyecto está definiendo la lógica base para guiar posturas de yoga, reconocer movimiento corporal y probar la claridad de la experiencia.
+                El objetivo general es comprobar si el usuario puede iniciar una rutina, calibrarse correctamente, seguir una postura guía y recibir retroalimentación visual comprensible sin depender de controles físicos.
               </p>
               <p>
-                La expansión a bailoterapia queda como una segunda etapa, una vez se valide el funcionamiento del sistema base.
+                El proyecto sigue en construcción del prototipo base. Las iteraciones esperadas se concentran en mejorar distancia frente al Kinect, mensajes visuales, contraste, simplificación de posturas y tiempos de respuesta.
               </p>
+              <div class="chip-row">
+                <span>Calibración</span>
+                <span>Tracking</span>
+                <span>Claridad</span>
+                <span>Respuesta</span>
+              </div>
             </div>
 
             <div class="contact-card" data-reveal>
-              <form id="contact-form" name="review-request" method="POST" action="/gracias/" data-success-url="/gracias/" data-netlify="true" netlify-honeypot="bot-field">
-                <input type="hidden" name="form-name" value="review-request" />
-                <p hidden>
-                  <label>
-                    No llenar este campo si eres humano
-                    <input name="bot-field" />
-                  </label>
-                </p>
-                <label>
-                  <span>Nombre</span>
-                  <input type="text" name="name" placeholder="Equipo o responsable" autocomplete="name" required />
-                </label>
-                <label>
-                  <span>Correo</span>
-                  <input type="email" name="email" placeholder="correo@proyecto.com" autocomplete="email" required />
-                </label>
-                <label>
-                  <span>Interés</span>
-                  <select name="profile" required>
-                    <option value="">Selecciona una opción</option>
-                    <option value="academico">Validación académica</option>
-                    <option value="prototipo">Revisión de prototipo</option>
-                    <option value="tecnologia">Desarrollo tecnológico</option>
-                  </select>
-                </label>
-                <label>
-                  <span>Detalle breve</span>
-                  <textarea name="notes" rows="4" placeholder="Cuéntanos qué quieres revisar del prototipo"></textarea>
-                </label>
-                <button class="button primary wide" type="submit" id="contact-submit">Solicitar revisión</button>
-                <p class="form-response" id="form-response" aria-live="polite"></p>
-              </form>
+              <span class="eyebrow small-eyebrow">Pruebas clave</span>
+              <ul class="feature-list compact-list">
+                <li><span aria-hidden="true">01</span><div><strong>Calibración.</strong> Métricas: tiempo de calibración y cantidad de intentos. Iteración esperada: ajustar distancia, encuadre y mensajes.</div></li>
+                <li><span aria-hidden="true">02</span><div><strong>Navegación por gesto.</strong> Métricas: tiempo para seleccionar y errores de selección. Iteración esperada: ajustar tamaño de botones y tiempo de activación.</div></li>
+                <li><span aria-hidden="true">03</span><div><strong>Rutina básica.</strong> Métricas: posturas completadas, errores de tracking y tasa de finalización. Iteración esperada: simplificar posturas difíciles y mejorar instrucciones.</div></li>
+                <li><span aria-hidden="true">04</span><div><strong>Retroalimentación visual.</strong> Métricas: claridad percibida y comentarios del usuario. Iteración esperada: aumentar contraste y mejorar la redacción de mensajes.</div></li>
+              </ul>
+              <p class="section-note">Base de referencia: criterios de estructura, validación y las páginas actuales del proyecto.</p>
+              <a class="button primary wide" href="interfaz-kinect.html">Revisar pantallas del prototipo</a>
             </div>
           </div>
         </section>
@@ -625,25 +915,27 @@
         <div class="footer-col">
           <span class="brand-word">KINECT YOGA EXPERIENCE</span>
           <p>
-            Prototipo con Kinect 360 y Unity para guiar posturas de yoga mediante seguimiento corporal.
+            Presentación general de un prototipo con Kinect 360 y Unity orientado a yoga guiado y reconocimiento corporal.
           </p>
         </div>
         <nav class="footer-col footer-nav">
-          <strong>Estructura</strong>
-          <a href="#informacion">Información general</a>
-          <a href="#introduccion">Introducción</a>
-          <a href="#valor">Propuesta de valor</a>
-          <a href="#alcance">Alcance</a>
-          <a href="#publico">Público objetivo</a>
-          <a href="#competencia">Referencias y Moodboard</a>
+          <strong>Secciones</strong>
+          <a href="#resumen">Resumen general</a>
+          <a href="#core">Core Experience</a>
+          <a href="#loop">Core Loop</a>
+          <a href="#interaccion">Interacción</a>
+          <a href="#sistema">Sistema y analítica</a>
+          <a href="#validacion">Plan de pruebas</a>
         </nav>
         <div class="footer-col">
           <strong>Estado actual</strong>
           <p>
-            Construcción de la lógica base del prototipo.<br />
+            Construcción del prototipo base.<br />
             Desarrollado por Matias Alexander Cabrera Navas y Listher Gabriel Vera Vera.<br />
             <span id="year"></span>
           </p>
+          <a class="button primary footer-page-link" href="indexviejo.html">gdd</a>
+          <p class="section-note">Volver a la página vieja del proyecto en formato GDD.</p>
         </div>
       </footer>
     </div>
